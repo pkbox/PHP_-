@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/demos.css" type="text/css"/>
+    <title>过去推荐</title>
+    <style>
+        .media_hd{
+            width: 25%;
+            height: auto;
+        }
+        .media_appmsg_thumb{
+            width: 100%;
+        }
+        .media_desc{
+            float: right;
+        }
+        .media_desc1{
+            color:#999;
+            font-size:13px;
+            line-height:1.2;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-line-clamp:4
+        }
+    </style>
+</head>
+<body>
+<div class="weui_tab">
+    <div class="weui_tab_bd">
+            <!--页面主体-->
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label for="date" class="weui_label">起始日期</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" id="date" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="content"></div>
+        <!--结束页面主体-->
+        <div id="inline-calendar"></div>
+    </div>
+    <div class="weui_tabbar">
+        <a href="user_recommend_index.html" class="weui_tabbar_item weui_bar_item_on">
+            <div class="weui_tabbar_icon">
+                <img src="images/shouye.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">首页</p>
+        </a>
+        <a href="user_recommend_search.html" class="weui_tabbar_item weui_bar_item_on">
+            <div class="weui_tabbar_icon">
+                <img src="images/shouye.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">查找</p>
+        </a>
+        <a href="user_recommend.html" class="weui_tabbar_item">
+            <div class="weui_tabbar_icon">
+                <img src="images/yingshiyinyue.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">推荐</p>
+        </a>
+        <a href="my_home.html" class="weui_tabbar_item">
+            <div class="weui_tabbar_icon">
+                <img src="images/gerenzhongxin.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">个人</p>
+        </a>
+    </div>
+</div>
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="js/jquery-weui.js"></script>
+<script>
+    $("#date").calendar({
+        value:["2016-11-5"],
+        maxDate:'2016-11-24',
+        minDate:'2016-10-1',
+        onClose: function (p) {
+            var url = "media_content.html";//get方式提交id
+            var coverimg = 'images/183397010201611032308495232577105568_003.jpg';
+            var title = '从你的全世界路过';
+            var actor = '';
+            var director = '';
+            var time = '2016-11-22';
+            var reason = '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。';
+            var score = '5.5';
+            $(".content").append(
+                    '<div class="weui_panel weui_panel_access">'+
+                    '<div class="weui_panel_bd">'+
+                    '<a href="'+url+'" class="weui_media_box weui_media_appmsg">'+
+                    '<div class="media_hd">'+
+                    '<img class="media_appmsg_thumb" src="'+coverimg+'" alt="">'+
+                    '</div>'+
+                    '<div class="weui_media_bd">'+
+                    '<h4 class="weui_media_title">电影名:'+title+'</h4>'+
+                    '<p class="weui_media_desc">主演:'+actor+'</p>'+
+                    '<p class="weui_media_desc">导演:'+director+'</p>'+
+                    '<p class="weui_media_desc">上映时间:'+time+'</p>'+
+                    '<p class="media_desc1">'+reason+'</p>'+
+                    '<p class="media_desc">评分:'+score+'</p>'+
+                    '</div>'+
+                    '</a>'+
+                    '</div>'+
+                    '</div>');
+        }
+    });
+</script>
+</body>
+</html>
