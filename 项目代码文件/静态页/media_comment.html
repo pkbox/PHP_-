@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/demos.css" type="text/css"/>
+    <style>
+        h1{
+            text-align: center;
+            font-size: inherit;
+        }
+        .username{
+            width: auto;
+            height: auto;
+            float: left;
+            font-size: 12px;
+            color: #5a5a5a;
+        }
+        .time{
+            width: auto;
+            height: auto;
+            float: left;
+            font-size: 12px;
+            color: #cccccc;
+            position:relative;left:5%;
+        }
+        .zan{
+            position: absolute;right: 5%;top: 10%;
+        }
+        .comment_content{
+            padding: 10px 15px 10px 30px;
+        }
+        .weui_search_bar{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="weui_tab">
+    <div class="weui_tab_bd">
+        <div class="weui-pull-to-refresh-layer">
+            <div class='pull-to-refresh-arrow'></div>
+            <div class='pull-to-refresh-preloader'></div>
+            <div class="down">下拉刷新</div>
+            <div class="up">释放刷新</div>
+            <div class="refresh">正在刷新</div>
+        </div>
+        <h1>影评页</h1>
+        <div class="weui_cells">
+            <div class="weui_cell">
+                <div class="username">
+                    <p>风景如墨:</p>
+                </div>
+                <div class="time">
+                    <p>2016-12-12</p>
+                </div>
+                <div class="zan">
+                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">
+                        赞233
+                    </a>
+                </div>
+            </div>
+            <div class="comment_content">
+                <p>1123123</p>
+            </div>
+            <div class="weui_cell">
+                <div class="username">
+                    <p>风景如墨:</p>
+                </div>
+                <div class="time">
+                    <p>2016-12-12</p>
+                </div>
+                <div class="zan">
+                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">
+                        赞233
+                    </a>
+                </div>
+            </div>
+            <div class="comment_content">
+                <p>1123123</p>
+            </div>
+        </div>
+    </div>
+    <div class="weui_tabbar">
+        <div class="weui_search_bar" id="search_bar">
+            <form class="weui_search_outer">
+                <div class="weui_search_inner">
+                    <input type="text" class="weui_search_input" placeholder="我来说两句" required="" value="">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/fastclick.js"></script>
+<script src="js/jquery-weui.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script>
+    $(".weui_tab_bd").pullToRefresh().on("pull-to-refresh", function() {
+        setTimeout(function() {
+            $(".weui_cells").html(
+            '<div class="weui_cell">'+
+                '<div class="username">'+
+                '<p>风景如墨:</p>'+
+            '</div>'+
+            '<div class="time">'+
+                '<p>2016-12-12</p>'+
+                '</div>'+
+                '<div class="zan">'+
+                '<a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">'+
+                '赞233'+
+                '</a>'+
+                '</div>'+
+                '</div>'+
+            '<div class="comment_content">'+
+                '<p>1123123</p>'+
+            '</div>'
+            );
+            $(".weui_tab_bd").pullToRefreshDone();
+        },2000);
+    });
+    $(document).on("click", ".weui_search_bar", function() {
+
+        $.prompt({
+            title: "发表评论",
+            text: "评论不能超过40个字符",
+            input: '',
+            onOK: function(text) {
+                $.toast("发表成功!");
+            },
+            onCancel: function() {
+                console.log("取消了");
+            },
+        });
+    });
+</script>
+</html>
