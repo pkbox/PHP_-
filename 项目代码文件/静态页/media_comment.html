@@ -36,6 +36,15 @@
         .weui_search_bar{
             width: 100%;
         }
+        .head{
+            float: left;
+            width: 35px;
+            height: 35px;
+        }
+        .head img{
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -51,6 +60,9 @@
         <h1>影评页</h1>
         <div class="weui_cells">
             <div class="weui_cell">
+                <div class="head">
+                    <img src="images/icon_nav_button.png">
+                </div>
                 <div class="username">
                     <p>风景如墨:</p>
                 </div>
@@ -67,6 +79,9 @@
                 <p>1123123</p>
             </div>
             <div class="weui_cell">
+                <div class="head">
+                    <img src="images/icon_nav_button.png">
+                </div>
                 <div class="username">
                     <p>风景如墨:</p>
                 </div>
@@ -107,6 +122,9 @@
     $(".weui_tab_bd").pullToRefresh().on("pull-to-refresh", function() {
         setTimeout(function() {
             $(".weui_cells").html(
+            '<div class="head">'+
+                '<img src="images/icon_nav_button.png">'+
+            '</div>'+
             '<div class="weui_cell">'+
                 '<div class="username">'+
                 '<p>风景如墨:</p>'+
