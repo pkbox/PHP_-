@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>评论页</title>
@@ -28,7 +28,9 @@
             position:relative;left:5%;
         }
         .zan{
-            position: absolute;right: 5%;top: 15px;
+            position: absolute;
+            right: 5%;
+            top: 15px;
         }
         .comment_content{
             padding: 10px 15px 10px 30px;
@@ -45,6 +47,25 @@
             width: 100%;
             height: 100%;
         }
+        .background{
+            display: none;
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            opacity: 0.6;
+        }
+        .comment{
+            display: none;
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            height: auto;
+        }
+        .praise{
+            background: #3CC51F;
+        }
     </style>
 </head>
 <body>
@@ -57,7 +78,6 @@
             <div class="up">释放刷新</div>
             <div class="refresh">正在刷新</div>
         </div>
-        <h1>影评页</h1>
         <div class="weui_cells">
             <div class="weui_cell">
                 <div class="head">
@@ -70,9 +90,7 @@
                     <p>2016-12-12</p>
                 </div>
                 <div class="zan">
-                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">
-                        赞233
-                    </a>
+                    <div class="weui_btn weui_btn_mini weui_btn_default">赞233<input class="id" hidden value="3"></div>
                 </div>
             </div>
             <div class="comment_content">
@@ -89,15 +107,25 @@
                     <p>2016-12-12</p>
                 </div>
                 <div class="zan">
-                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">
-                        赞233
-                    </a>
+                    <div class="weui_btn weui_btn_mini weui_btn_default" >赞233<input class="id" hidden value="4"></div>
                 </div>
             </div>
             <div class="comment_content">
                 <p>1123123</p>
             </div>
         </div>
+    </div>
+    <div class="background"></div>
+    <div class="comment">
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" placeholder="请输入评论" rows="4"></textarea>
+                    <div class="weui_textarea_counter"><span class="OK">0</span>/200</div>
+                </div>
+            </div>
+        </div>
+        <a href="javascript:;" class="weui_btn weui_btn_primary">发表</a>
     </div>
     <div class="weui_tabbar">
         <div class="weui_search_bar" id="search_bar">
@@ -114,50 +142,85 @@
 <script src="lib/fastclick.js"></script>
 <script src="js/jquery-weui.js"></script>
 <script>
-    $(function() {
-        FastClick.attach(document.body);
+    var MAX_LENGTH=200; //最大输入字数
+    $(document).ready(function(){
+        $(".id").each(function () {
+            var id = $(this).val();
+            if(id == 4){
+                $(this).parent().addClass("praise");
+            }
+        });
     });
-</script>
-<script>
     $(".weui_tab_bd").pullToRefresh().on("pull-to-refresh", function() {
         setTimeout(function() {
-            $(".weui_cells").html(
-            '<div class="head">'+
-                '<img src="images/icon_nav_button.png">'+
-            '</div>'+
-            '<div class="weui_cell">'+
-                '<div class="username">'+
-                '<p>风景如墨:</p>'+
-            '</div>'+
-            '<div class="time">'+
-                '<p>2016-12-12</p>'+
-                '</div>'+
-                '<div class="zan">'+
-                '<a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">'+
-                '赞233'+
-                '</a>'+
-                '</div>'+
-                '</div>'+
-            '<div class="comment_content">'+
-                '<p>1123123</p>'+
-            '</div>'
+            $(".weui_tab_bd .weui_cells").html(
+                    '<div class="head">'+
+                    '<img src="images/icon_nav_button.png">'+
+                    '</div>'+
+                    '<div class="weui_cell">'+
+                    '<div class="username">'+
+                    '<p>风景如墨:</p>'+
+                    '</div>'+
+                    '<div class="time">'+
+                    '<p>2016-12-12</p>'+
+                    '</div>'+
+                    '<div class="zan">'+
+                    '<div class="weui_btn weui_btn_mini weui_btn_default">赞233<input class="id" hidden value="3"></div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="comment_content">'+
+                    '<p>1123123</p>'+
+                    '</div>'
             );
             $(".weui_tab_bd").pullToRefreshDone();
         },2000);
     });
-    $(document).on("click", ".weui_search_bar", function() {
+    $(".weui_tab_bd .weui_cells .weui_btn_mini").click(function () {
+        var classname = $.trim($(this).attr('class')).substr(-6);
+        if (classname=='praise'){
+            var num = parseInt($.trim($(this).text()).substr(1));
+            num = num-1;
+            $(this).text('赞'+num);
+            $(this).removeClass("praise");
+        }else{
+            var num = parseInt($.trim($(this).text()).substr(1));
+            num = num+1;
+            $(this).text('赞'+num);
+            $(this).addClass("praise");
+        }
+    });
 
-        $.prompt({
-            title: "发表评论",
-            text: "评论不能超过40个字符",
-            input: '',
-            onOK: function(text) {
-                $.toast("发表成功!");
-            },
-            onCancel: function() {
-                console.log("取消了");
-            },
-        });
+$(".weui_tabbar").click(function () {
+    $(".comment").show();
+    $(".background").show();
+    $(".weui_tabbar").hide();
+});
+$(".background").click(function () {
+    $(".weui_search_input").val($(".weui_textarea").val());
+    $(".comment").hide();
+    $(".background").hide();
+    $(".weui_tabbar").show();
+});
+    $(".weui_btn_primary").click(function () {
+        var content=$(".weui_textarea").val();
+        if(content==''){
+            $.toast("请输入评论内容",'text');
+        }
+        $(".comment").hide();
+        $(".background").hide();
+        $(".weui_tabbar").show();
+        $.toast('发表成功');
+        $(".weui_textarea").val('');
+        $(".weui_search_input").val('');
+    });
+    $(".weui_textarea").keyup(function () {
+        var len = $(".weui_textarea").val().length;
+        if (len>MAX_LENGTH){
+            $.toast("您的字数达到最大限制了",'text');
+            $(this).val($(this).val().substring(0,MAX_LENGTH));
+        }
+        var length = $(".weui_textarea").val().length;
+        $(".OK").text(length );
     });
 </script>
 </html>
