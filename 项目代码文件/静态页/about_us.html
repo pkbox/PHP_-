@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>关于我们</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="lib/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css">
+    <style>
+         html,body{
+        height: 100%;
+        font-size:20px;
+        line-height:30px;
+        }
+        .weui_media_hd img{
+          height: 200px;
+          top: 100px;
+        }
+        .weui_ini{
+        	word-break:break-all;
+          font-size: 19px
+        }
+        .images{
+          text-align:center;
+        }
+        .bbt{
+          text-align: right;
+        }
+        .weui_navbar_item{
+          padding: 7px 0;
+        }
+        
+    </style>
+</head>
+<body> 
+   <div class="weui_tab">
+    <div class="weui_navbar">
+      
+      <a href="#" class="weui_navbar_item weui_bar_item_on">
+        个人中心
+      </a>
+  </div>
+  <div class="weui_tab_bd">
+
+	<div class="weui_ini">
+      <p>欢迎来到微信公众号，这里是电影的海洋。为大家提供最新，最好看的电影</p>
+  </div>
+
+    <div class="images">
+    <img src="images/erweima.jpg">
+    </div>
+
+    <div class="weui_bbt">
+       <table>
+       <tr>
+        <td>点关注，不迷路.随时随地获取最新电影信息</td>
+      </tr>
+      </table>
+    </div>
+        
+    <div class="weui_tabbar">
+      <a href="media_index.html" class="weui_tabbar_item ">
+        <div class="weui_tabbar_icon">
+          <img src="images/home.jpg" alt="">
+        </div>
+        <p class="weui_tabbar_label">影视推荐</p>
+      </a>
+      <a href="user_recommend_index.html" class="weui_tabbar_item">
+        <div class="weui_tabbar_icon">
+          <img src="images/news.jpg" alt="">
+        </div>
+        <p class="weui_tabbar_label">用户推荐</p>
+      </a>
+      
+      <a href="my_home.html" class="weui_tabbar_item">
+        <div class="weui_tabbar_icon">
+          <img src="images/mien.jpg" alt="">
+        </div>
+        <p class="weui_tabbar_label">个人中心</p>
+      </a>
+    </div>
+</body>
+
+<script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="js/swiper.js"></script>
+<script>
+      $(".swiper-container").swiper({
+        loop: true,
+        autoplay: 3000
+      });
+      $(".weui_navbar .weui_navbar_item").click(function(){
+        $(".weui_navbar .weui_navbar_item").removeClass("weui_bar_item_on");//谁都没有
+        $(this).addClass("weui_bar_item_on");//点谁谁有
+        //判断点哪个
+        var which=$(this).index();
+
+        //
+        $(".weui_tab_db .content").hide();
+
+        //按索引显示对应的内容
+        $(".weui_tab_db .content:eq("+which+")").show();
+      });
+    </script>
+</html>
