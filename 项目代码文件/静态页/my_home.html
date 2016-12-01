@@ -21,10 +21,12 @@
 .weui_tab_bd{
     width:100%;
     height:600px;
-    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#b8c4cb), to(#f6f6f8));
 }
 html,body{
     height: 100%;
+}
+.weui_tab{
+    height:100%;
 }
 .weui_cell_bd{
     height:100%;
@@ -33,13 +35,13 @@ html,body{
     text-align:center;
  }
 .weui_cells{
-    height:60%;
+    background-image:linear-gradient(50deg, #fff,lightblue);
 }
 .weui_tab_bd{
     height: 100%;
 }
 .weui_cell{
-    height:29%;
+    height:10%;
 }
 .weui_cell_bd{
     width: 25%;
@@ -47,15 +49,19 @@ html,body{
     height: auto;
 }
 .weui_cell_bd img{
-    width:40%;
-    height:40%;
+    width:30%;
+    height:30%;
+    padding-right: 0;
 }
 .conment_hd{
     width: 75%;
     float: right;
 }
 .title{
-    padding-left: 23%;
+    padding-left: 25%;
+}
+.weui_panel{
+    background-image:linear-gradient(50deg, #fff,lightblue);
 }
 
     </style>
@@ -72,7 +78,7 @@ html,body{
                             <img class="weui_media_appmsg_thumb" src="images/touxiang.jpg" alt="personal_images">
                         </div>
                         <div class="weui_media_bd">
-        <p class="weui_media_desc"><font color="red" size="5px">刘仁</font></p>
+        <p class="weui_media_desc"><font color="red" size="4px">刘仁</font></p>
     </div>
     </a>
 </div>
@@ -86,7 +92,7 @@ html,body{
             <img class="weui_media_appmsg_thumb" src="images/tuijian.png" alt="无图">
         </div>
         <div  class="conment_hd">
-            <h4 class="title">TA的推荐</h4>
+            <h5 class="title">TA的推荐</h5>
         </div>
         <div class="weui_cell_ft">
         </div>
@@ -97,7 +103,7 @@ html,body{
             <img class="weui_media_appmsg_thumb" src="images/book118.png" alt="无图">
         </div>
         <div  class="conment_hd">
-            <h4 class="title">TA的收藏</h4>
+            <h5 class="title">TA的收藏</h5>
         </div>
         <div class="weui_cell_ft">
         </div>
@@ -108,10 +114,33 @@ html,body{
             <img class="weui_media_appmsg_thumb" src="images/women.png" alt="无图">
         </div>
         <div  class="conment_hd">
-            <h4 class="title">关于我们</h4>
+            <h5 class="title">关于我们</h5>
         </div>
         <div class="weui_cell_ft">
         </div>
+    </a>
+</div>
+
+<!--底部导航栏-->
+<div class="weui_tabbar">
+    <a href="media_index.html" class="weui_tabbar_item weui_bar_item_on">
+        <div class="weui_tabbar_icon">
+            <img src="images/home.jpg" alt="">
+        </div>
+        <p class="weui_tabbar_label">影视推荐</p>
+    </a>
+    <a href="user_recommend_index.html" class="weui_tabbar_item">
+        <div class="weui_tabbar_icon">
+            <img src="images/news.jpg" alt="">
+        </div>
+        <p class="weui_tabbar_label">用户推荐</p>
+    </a>
+
+    <a href="my_home.html" class="weui_tabbar_item">
+        <div class="weui_tabbar_icon">
+            <img src="images/mien.jpg" alt="">
+        </div>
+        <p class="weui_tabbar_label">个人中心</p>
     </a>
 </div>
         </div>
