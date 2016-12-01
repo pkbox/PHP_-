@@ -23,16 +23,14 @@
     height:600px;
     background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#b8c4cb), to(#f6f6f8));
 }
-.weui_wd{
-    height:100%;
-    line-height:100%;
-    overflow:hidden;
-    text-align:center;
-}
 html,body{
     height: 100%;
 }
 .weui_cell_bd{
+    height:100%;
+    line-height:100%;
+    overflow:hidden;
+    text-align:center;
  }
 .weui_cells{
     height:60%;
@@ -43,7 +41,22 @@ html,body{
 .weui_cell{
     height:29%;
 }
-
+.weui_cell_bd{
+    width: 25%;
+    float: left;
+    height: auto;
+}
+.weui_cell_bd img{
+    width:40%;
+    height:40%;
+}
+.conment_hd{
+    width: 75%;
+    float: right;
+}
+.title{
+    padding-left: 23%;
+}
 
     </style>
 </head>
@@ -59,7 +72,7 @@ html,body{
                             <img class="weui_media_appmsg_thumb" src="images/touxiang.jpg" alt="personal_images">
                         </div>
                         <div class="weui_media_bd">
-        <p class="weui_media_desc"><font color="red" size="6px">刘仁</font></p>
+        <p class="weui_media_desc"><font color="red" size="5px">刘仁</font></p>
     </div>
     </a>
 </div>
@@ -70,7 +83,10 @@ html,body{
 <div class="weui_cells weui_cells_access" >
     <a class="weui_cell" href="my_recommend.html">
         <div class="weui_cell_bd weui_cell_primary">
-            <p class="weui_wd"> <img src="images/tuijian.png" alt="icon" width="25px" height="27px"><font size="4">TA的推荐</font></p>
+            <img class="weui_media_appmsg_thumb" src="images/tuijian.png" alt="无图">
+        </div>
+        <div  class="conment_hd">
+            <h4 class="title">TA的推荐</h4>
         </div>
         <div class="weui_cell_ft">
         </div>
@@ -78,7 +94,10 @@ html,body{
     <!--第二个选项卡-->
     <a class="weui_cell" href="my_collection.html">
         <div class="weui_cell_bd weui_cell_primary">
-            <p class="weui_wd"> <img src="images/book118.png" alt="icon" width="24px" height="24px"><font size="4">TA的收藏</font></p>
+            <img class="weui_media_appmsg_thumb" src="images/book118.png" alt="无图">
+        </div>
+        <div  class="conment_hd">
+            <h4 class="title">TA的收藏</h4>
         </div>
         <div class="weui_cell_ft">
         </div>
@@ -86,7 +105,10 @@ html,body{
     <!--第三个选项卡-->
     <a class="weui_cell" href="about_us.html">
         <div class="weui_cell_bd weui_cell_primary">
-            <p class="weui_wd"> <img src="images/women.png" alt="icon" width="24px" height="24px"><font size="4">关于我们</font></p>
+            <img class="weui_media_appmsg_thumb" src="images/women.png" alt="无图">
+        </div>
+        <div  class="conment_hd">
+            <h4 class="title">关于我们</h4>
         </div>
         <div class="weui_cell_ft">
         </div>
