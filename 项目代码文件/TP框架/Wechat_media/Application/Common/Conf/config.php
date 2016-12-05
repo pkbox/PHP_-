@@ -9,4 +9,6 @@ return array(
     'DB_PORT'   => 3306, // 端口
     'DB_PREFIX' => '', // 数据库表前缀
     'DB_CHARSET'=> 'utf8', // 字符集
+
+    'URL_HTML_SUFFIX'=>''  ,//设置伪静态后缀为空  把后缀.html 去掉
 );

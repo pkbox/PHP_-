@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>电影推荐列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="__PUBLIC__/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="__PUBLIC__/home/css/demos.css" type="text/css"/>
+    <style>
+        .media_hd{
+            width: 25%;
+            height: auto;
+        }
+        .media_appmsg_thumb{
+            width: 100%;
+        }
+        .media_desc{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="weui_tab">
+    <div class="weui_tab_bd">
+        <div class="weui-pull-to-refresh-layer">
+            <div class='pull-to-refresh-arrow'></div>
+            <div class='pull-to-refresh-preloader'></div>
+            <div class="down">下拉刷新</div>
+            <div class="up">释放刷新</div>
+            <div class="refresh">正在刷新</div>
+        </div>
+        <!--页面主体-->
+        <div class="content">
+
+            <volist name="admin_recommend_lists" id="lists">
+                <div class="weui_panel weui_panel_access">
+                    <div class="weui_panel_bd">
+                        <a href="{:U('home/adminrcmd/media_content/ar_id')}/{$lists.ar_id}" class="weui_media_box weui_media_appmsg">
+                            <div class="media_hd">
+                                <img class="media_appmsg_thumb" src="{$lists.thumb}" alt="">
+                            </div>
+                            <div class="weui_media_bd">
+                                <h4 class="weui_media_title">电影名:{$lists.title}</h4>
+                                <p class="weui_media_desc">主演:{$lists.actor}</p>
+                                <p class="weui_media_desc">导演:{$lists.director}</p>
+                                <p class="weui_media_desc">上映时间:{$lists.time}</p>
+                                <p class="weui_media_desc">{$lists.reason}</p>
+                                <p class="media_desc">评分:{$lists.score}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </volist>
+
+            </div>
+        </div>
+        <div class="weui-infinite-scroll">
+            <div class="infinite-preloader"></div>
+            正在加载
+        </div>
+
+        <!--页面主体结束-->
+    </div>
+
+    <div class="weui_tabbar">
+        <a href="media_index.html" class="weui_tabbar_item weui_bar_item_on">
+            <div class="weui_tabbar_icon">
+                <img src="__PUBLIC__/home/images/shouye.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">主页</p>
+        </a>
+        <a href="media_music.html" class="weui_tabbar_item">
+            <div class="weui_tabbar_icon">
+                <img src="__PUBLIC__/home/images/yingshiyinyue.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">音乐</p>
+        </a>
+        <a href="{:U('home/usershome/my_home')}" class="weui_tabbar_item">
+            <div class="weui_tabbar_icon">
+                <img src="__PUBLIC__/home/images/gerenzhongxin.png" alt="">
+            </div>
+            <p class="weui_tabbar_label">个人中心</p>
+        </a>
+    </div>
+</div>
+<script src="__PUBLIC__/home/lib/jquery-2.1.4.js"></script>
+<script src="__PUBLIC__/home/lib/fastclick.js"></script>
+<script src="__PUBLIC__/home/js/jquery-weui.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script>
+var p = 0;
+    $(".weui_tab_bd").infinite();
+    var loading = false;
+    $(".weui_tab_bd").infinite().on("infinite", function() {
+        if(loading) return;
+        loading = true;
+        <!-- 滚动加载数据库数据-->
+        var url = "{:U('home/Adminrcmd/page')}";
+        $.post(url,{'p':p},function(data){
+            <!-- 1.将josn字符串转为对象-->
+            data=eval(data);
+            console.log(data);
+            <!-- 2.显示加载数据-->
+            for (i=0;i<data.length;i++){
+                $(".content").append(
+                        '<div class="weui_panel weui_panel_access">'+
+                        '<div class="weui_panel_bd">'+
+                        '<a href="'+"{:U('home/adminrcmd/media_content/ar_id')}/"+ data[i].ar_id+ '" class="weui_media_box weui_media_appmsg">'+
+                        '<div class="media_hd">'+
+                        '<img class="media_appmsg_thumb" src="'+data[i].thumb+'" alt="">'+
+                        '</div>'+
+                        '<div class="weui_media_bd">'+
+                        '<h4 class="weui_media_title">电影名:'+data[i].title+'</h4>'+
+                        '<p class="weui_media_desc">主演:'+data[i].actor+'</p>'+
+                        '<p class="weui_media_desc">导演:'+data[i].director+'</p>'+
+                        '<p class="weui_media_desc">上映时间:'+data[i].time+'</p>'+
+                        '<p class="weui_media_desc">'+data[i].reason+'</p>'+
+                        '<p class="media_desc">评分:'+data[i].score+'</p>'+
+                        '</div>'+
+                        '</a>'+
+                        '</div>'+
+                        '</div>');
+            }
+            p = p+1;
+            <!--3.重置滚动事件-->
+            loading = false;
+            });
+
+    });
+    $(".weui_tab_bd").pullToRefresh().on("pull-to-refresh", function() {
+        setTimeout(function() {
+            var url = "media_content.html";//get方式提交id
+            var coverimg = '__PUBLIC__/home/images/183397010201611032308495232577105568_003.jpg';
+            var title = '从你的全世界路过';
+            var actor = '';
+            var director = '';
+            var time = '2016-11-22';
+            var reason = '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。';
+            var score = '5.5';
+                $(".content").html(
+                        '<div class="weui_panel weui_panel_access">' +
+                        '<div class="weui_panel_bd">' +
+                        '<a href="' + url + '" class="weui_media_box weui_media_appmsg">' +
+                        '<div class="media_hd">' +
+                        '<img class="media_appmsg_thumb" src="' + coverimg + '" alt="">' +
+                        '</div>' +
+                        '<div class="weui_media_bd">' +
+                        '<h4 class="weui_media_title">电影名:' + title + '</h4>' +
+                        '<p class="weui_media_desc">主演:' + actor + '</p>' +
+                        '<p class="weui_media_desc">导演:' + director + '</p>' +
+                        '<p class="weui_media_desc">上映时间:' + time + '</p>' +
+                        '<p class="weui_media_desc">' + reason + '</p>' +
+                        '<p class="media_desc">评分:' + score + '</p>' +
+                        '</div>' +
+                        '</a>' +
+                        '</div>' +
+                        '</div>');
+            for (i=0;i<5;i++){
+                $(".content").append(
+                        '<div class="weui_panel weui_panel_access">'+
+                        '<div class="weui_panel_bd">'+
+                        '<a href="'+url+'" class="weui_media_box weui_media_appmsg">'+
+                        '<div class="media_hd">'+
+                        '<img class="media_appmsg_thumb" src="'+coverimg+'" alt="">'+
+                        '</div>'+
+                        '<div class="weui_media_bd">'+
+                        '<h4 class="weui_media_title">电影名:'+title+'</h4>'+
+                        '<p class="weui_media_desc">主演:'+actor+'</p>'+
+                        '<p class="weui_media_desc">导演:'+director+'</p>'+
+                        '<p class="weui_media_desc">上映时间:'+time+'</p>'+
+                        '<p class="weui_media_desc">'+reason+'</p>'+
+                        '<p class="media_desc">评分:'+score+'</p>'+
+                        '</div>'+
+                        '</a>'+
+                        '</div>'+
+                        '</div>');
+            }
+            $(".weui_tab_bd").pullToRefreshDone();
+        }, 2000);
+    });
+</script>
+</body>
+</html>
