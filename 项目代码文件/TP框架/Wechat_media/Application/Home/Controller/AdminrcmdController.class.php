@@ -112,4 +112,15 @@ class AdminrcmdController extends Controller{
         echo json_encode($list);
 
     }
+ /*
+ 电影金曲
+ */
+ public function music_recommend(){
+        $this->music_recommend_lists=M('music_recommend_lists');
+        $musicrcmd = $this->music_recommend_lists->limit(9)->select();
+//        dump($musicrcmd);
+        $this->assign('musicrcmd',$musicrcmd);
+        //显示视图
+        $this->display();
+    }
 }
