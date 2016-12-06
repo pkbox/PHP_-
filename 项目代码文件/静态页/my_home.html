@@ -13,15 +13,11 @@
     width:50%;
 }
 
-.weui_media_desc{
-    font-family:华文行楷;
-}
-.weui_media_hd{ margin:1px auto}
 .weui_media_hd img{ border-radius:50%}
 .weui_tab_bd{
     width:100%;
     height:600px;
-    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#b8c4cb), to(#f6f6f8));
+    background-image:linear-gradient(75deg, #fff,lightblue);
 }
 html,body{
     height: 100%;
@@ -36,13 +32,13 @@ html,body{
     text-align:center;
  }
 .weui_cells{
-    background-image:linear-gradient(50deg, #fff,lightblue);
+height:56%;
 }
 .weui_tab_bd{
     height: 100%;
 }
 .weui_cell{
-    height:10%;
+    height:28%;
 }
 .weui_cell_bd{
     width: 25%;
@@ -50,8 +46,8 @@ html,body{
     height: auto;
 }
 .weui_cell_bd img{
-    width:30%;
-    height:30%;
+    width:50%;
+    height:50%;
     padding-right: 0;
 }
 .conment_hd{
@@ -59,11 +55,32 @@ html,body{
     float: right;
 }
 .title{
-    padding-left: 25%;
+    padding-left: 27%;
 }
-.weui_panel{
-    background-image:linear-gradient(50deg, #fff,lightblue);
+.weui_panal_la{
+
+    height:100%;
+    overflow:hidden;
+    text-align:center;
+    padding-top: 10%;
+    padding-bottom: 6%;
 }
+.weui_panal_la img{
+    border-radius:50%;
+    height:100%;
+    width:25%;
+}
+.weui_word{
+    text-align:center;
+    color:darkred;
+}
+.weui_word1{
+    text-align:center;
+
+}
+.weui_panal{
+}
+
 
     </style>
 </head>
@@ -71,26 +88,21 @@ html,body{
 <div class="weui_tab">
     <div class="weui_tab_bd">
         <!--个人头像和昵称-->
-        <p>
-            <div class="weui_panel weui_panel_access">
-                <div class="weui_panel_bd">
-                    <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
-                        <div class="weui_media_hd">
-                            <img class="weui_media_appmsg_thumb" src="images/touxiang.jpg" alt="personal_images">
-                        </div>
-                        <div class="weui_media_bd">
-        <p class="weui_media_desc"><font color="red" size="4px">刘仁</font></p>
-    </div>
-    </a>
+        <div class="weui_panal">
+            <p>
+                <div><h2><p class="weui_word1">个人中心</p></h2></div>
+        <hr>
+                <div class="weui_panal_la">
+                <img class="weui_media_appmsg_thumb" src="images/touxiang.jpg">
+            </div>
+<div><h2><p class="weui_word">你的昵称</p></h2></div>
+            </p>
 </div>
-</div>
-</p>
-<hr>
 <!--第一个选项卡-->
 <div class="weui_cells weui_cells_access" >
     <a class="weui_cell" href="my_recommend.html">
         <div class="weui_cell_bd weui_cell_primary">
-            <img class="weui_media_appmsg_thumb" src="images/tuijian.png" alt="无图">
+            <img class="weui_media_appmsg_thumb" src="images/tuijian1.png" alt="无图">
         </div>
         <div  class="conment_hd">
             <h5 class="title">TA的推荐</h5>
@@ -101,7 +113,7 @@ html,body{
     <!--第二个选项卡-->
     <a class="weui_cell" href="my_collection.html">
         <div class="weui_cell_bd weui_cell_primary">
-            <img class="weui_media_appmsg_thumb" src="images/book118.png" alt="无图">
+            <img class="weui_media_appmsg_thumb" src="images/shuji1.png" alt="无图">
         </div>
         <div  class="conment_hd">
             <h5 class="title">TA的收藏</h5>
@@ -112,7 +124,7 @@ html,body{
     <!--第三个选项卡-->
     <a class="weui_cell" href="about_us.html">
         <div class="weui_cell_bd weui_cell_primary">
-            <img class="weui_media_appmsg_thumb" src="images/women.png" alt="无图">
+            <img class="weui_media_appmsg_thumb" src="images/women1.png" alt="无图">
         </div>
         <div  class="conment_hd">
             <h5 class="title">关于我们</h5>
