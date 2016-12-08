@@ -17,7 +17,11 @@
 .weui_tab_bd{
     width:100%;
     height:600px;
-    background-image:linear-gradient(75deg, #fff,lightblue);
+    background-image:url("images/beijing1.jpg");
+    background-repeat:repeat-y;
+    background-size: 120% 90%;
+
+
 }
 html,body{
     height: 100%;
@@ -33,6 +37,7 @@ html,body{
  }
 .weui_cells{
 height:56%;
+    background-image:linear-gradient(75deg, #fff,#81C0C0);
 }
 .weui_tab_bd{
     height: 100%;
@@ -56,6 +61,8 @@ height:56%;
 }
 .title{
     padding-left: 27%;
+    font-family:隶书;
+
 }
 .weui_panal_la{
 
@@ -79,8 +86,11 @@ height:56%;
 
 }
 .weui_panal{
-}
 
+}
+.weui_you{
+    hright:100%;
+}
 
     </style>
 </head>
@@ -95,8 +105,8 @@ height:56%;
                 <div class="weui_panal_la">
                 <img class="weui_media_appmsg_thumb" src="images/touxiang.jpg">
             </div>
-<div><h2><p class="weui_word">你的昵称</p></h2></div>
-            </p>
+<div class="weui_you"><h2><p class="weui_word">你的昵称</p></h2></div>
+        </p>
 </div>
 <!--第一个选项卡-->
 <div class="weui_cells weui_cells_access" >
@@ -105,29 +115,31 @@ height:56%;
             <img class="weui_media_appmsg_thumb" src="images/tuijian1.png" alt="无图">
         </div>
         <div  class="conment_hd">
-            <h5 class="title">TA的推荐</h5>
+            <h2 class="title">TA的推荐</h2>
         </div>
         <div class="weui_cell_ft">
         </div>
     </a>
+    <hr>
     <!--第二个选项卡-->
     <a class="weui_cell" href="my_collection.html">
         <div class="weui_cell_bd weui_cell_primary">
             <img class="weui_media_appmsg_thumb" src="images/shuji1.png" alt="无图">
         </div>
         <div  class="conment_hd">
-            <h5 class="title">TA的收藏</h5>
+            <h2 class="title">TA的收藏</h2>
         </div>
         <div class="weui_cell_ft">
         </div>
     </a>
+    <hr>
     <!--第三个选项卡-->
     <a class="weui_cell" href="about_us.html">
         <div class="weui_cell_bd weui_cell_primary">
             <img class="weui_media_appmsg_thumb" src="images/women1.png" alt="无图">
         </div>
         <div  class="conment_hd">
-            <h5 class="title">关于我们</h5>
+            <h2 class="title">关于我们</h2>
         </div>
         <div class="weui_cell_ft">
         </div>
