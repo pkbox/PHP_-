@@ -163,7 +163,7 @@
                     '<p>'+comments[0].username+'</p>'+
                 '</div>'+
                 '<div class="time">'+
-                    '<p>{'+comments[0].time+'|date="Y-m-d H:i",###}</p>'+
+                    '<p>'+comments[0].time+'</p>'+
                 '</div>'+
                 '<div class="zan">'+
                     '<div class="weui_btn weui_btn_mini weui_btn_default"><p>赞'+comments[0].parisecount+'</p><input class="id" hidden value="'+comments[0].c_id+'"></div>'+
@@ -183,7 +183,7 @@
                             '<p>'+comments[i].username+'</p>'+
                         '</div>'+
                         '<div class="time">'+
-                            '<p>{'+comments[i].time+'|date="Y-m-d H:i",###}</p>'+
+                            '<p>'+comments[i].time+'</p>'+
                         '</div>'+
                         '<div class="zan">'+
                             '<div class="weui_btn weui_btn_mini weui_btn_default"><p>赞'+comments[i].parisecount+'</p><input class="id" hidden value="'+comments[i].c_id+'"></div>'+
@@ -273,6 +273,7 @@ $(".background").click(function () {
                 $.toast('没有更多评论了!','text');
                 $(".weui-infinite-scroll").hide();
             }else{
+                var comments = jQuery.parseJSON(data);
                 for (var i=0;i<comments.length;i++){
                     $(".weui_tab_bd .weui_cells").append(
                             '<div class="weui_cell">'+
