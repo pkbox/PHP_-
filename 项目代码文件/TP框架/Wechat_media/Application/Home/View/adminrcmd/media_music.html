@@ -90,7 +90,7 @@
             width: auto;
             height: 50px;
             font-size: 20px;
-            color: black;
+            color: #000000;
             line-height: 50px;
         }
 
@@ -99,6 +99,7 @@
             height: 40px;
             border: 1px solid white;
             margin-left: 4px;
+            color: #979797;
         }
 
         .weui_cells .weui_cell .weui_cells_bd {
@@ -108,6 +109,7 @@
             font-size: 18px;
             text-align: left;
             padding-left: 20px;
+
         }
     </style>
 </head>
@@ -142,7 +144,7 @@
             </div>
             <div class="title">
                 <div>
-                    <p>播放列表 ></p>
+                    <p>播放列表 </p>
                 </div>
             </div>
             <volist name="musicrcmd" id="vo">
@@ -270,7 +272,13 @@
             $(".js_progress").css("width", ProcessNow);
             var currentTime = timeFormat(audio.currentTime);
             var timeAll = timeFormat(TimeAll());
-            $(".SongTime").html(currentTime + " | " + timeAll);
+            //alert(timeAll );
+            if(timeAll=='0NaN:0NaN')
+            {
+                $(".SongTime").html(currentTime + " | " + "00:00");
+            }else{
+                $(".SongTime").html(currentTime + " | " + timeAll);
+            }
         }, 1000);
     }
     function timeFormat(number) {
