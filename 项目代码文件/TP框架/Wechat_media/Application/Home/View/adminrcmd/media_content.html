@@ -24,11 +24,10 @@
             left: 10%;
             right: 10%;
             top: 10px;
-            background-color:#FFFFFF ;
-            border-radius: 50%/100%;
-            border:1px solid #000000;
-            text-align: center;
             padding: 25px 0px;
+        }
+        .showmore{
+            text-indent: 2.5em;
         }
         .bi{
             position: relative;
@@ -108,9 +107,6 @@
         .more{
             color: #a1a1a1;
         }
-        .black{
-            color: #000;
-        }
         .editorialize{
             font-size: 20px;
             margin:0 2% 0 2%;
@@ -137,6 +133,7 @@
         <div id="oval">
                 <p>导演：{$content['director']}</p>
                 <p>主演：{$content['actor']['0']}<a href="javascript:void(0);" class="more">//更多</a><input hidden value="{$content['actor']['1']}"></p>
+                <p class="showmore"></p>
                 <p>类型：{$content['type']}</p>
         </div>
         <!--影视信息结束-->
@@ -268,6 +265,7 @@
             });
         }
     });
+    //评论动态显示字数
     $(".weui_textarea").keyup(function () {
         var len = $(".weui_textarea").val().length;
         if (len>MAX_LENGTH){
@@ -277,10 +275,10 @@
         var length = $(".weui_textarea").val().length;
         $(".OK").text(length );
     });
+    //点击更多加载
     $(".more").on('click',function () {
-        $(this).text($(this).parent().children('input').val());
-        $(this).removeClass('more');
-        $(this).addClass('black');
+        $(".showmore").text($(this).parent().children('input').val());
+        $(this).hide();
     })
 </script>
 </html>

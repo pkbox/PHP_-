@@ -238,7 +238,7 @@ $(".background").click(function () {
             $.toast("请输入评论内容",'text');
         }else {
             var url="{:U('home/adminrcmd/comment_publish')}";
-            var mediaid="{$content.ar_id}";
+            var mediaid="{$ar_id}";
             $.post(url, {'content':content,'mediaid':mediaid},function (data) {
                 if (data=='1'){
                     $(".comment").hide();
@@ -271,7 +271,9 @@ $(".background").click(function () {
         $.post(url,{'ar_id':ar_id,'p':p},function (data) {
             if (data=='0'){
                 $.toast('没有更多评论了!','text');
+                $(".weui-infinite-scroll").hide();
             }else{
+                var comments = jQuery.parseJSON(data);
                 for (var i=0;i<comments.length;i++){
                     $(".weui_tab_bd .weui_cells").append(
                             '<div class="weui_cell">'+

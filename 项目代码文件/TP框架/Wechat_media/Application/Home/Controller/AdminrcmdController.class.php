@@ -14,9 +14,10 @@ class AdminrcmdController extends Controller{
 
     protected $admin_recommend_lists;//管理员推荐电影数据表
     protected $media_type;//电影类型数据表
-    protected $admin_content_commend;//评论表
+    protected $admin_content_comment;//评论表
     protected $music_recommend_lists;//音乐推荐表
     public $_num = 10;//页面显示数量
+    public $_commentnum = 20;//评论显示数量
  /*
   * 显示影视推荐首页
   * */
@@ -80,7 +81,7 @@ class AdminrcmdController extends Controller{
         //实例化模型类
         $this->admin_content_comment = M('admin_content_comment');
         //数据查询
-        $comments = $this->admin_content_comment->where("MediaID=$ar_id")->order('time desc,PariseCount desc')->limit(20)->select();
+        $comments = $this->admin_content_comment->where("MediaID=$ar_id")->order('time desc,PariseCount desc')->limit($this->_commentnum)->select();
         //将数据传入模板
         $this->assign('comments',$comments);
         $this->assign('ar_id',$ar_id);
@@ -91,13 +92,17 @@ class AdminrcmdController extends Controller{
      *用户发表评论
      */
     public function comment_publish(){
+        //获取数据
         $data['MediaID'] = I('mediaid');
         $data['content'] = I('content');
         $data['time'] = time();
-        $data['userName'] = 'yonghu';
-        $data['userImg'] = 'http://img5.duitang.com/uploads/item/201602/11/20160211215958_P4MtQ.thumb.700_0.jpeg';
+        $data['userName'] = session('name');
+        $data['userImg'] = session('userimg');
+        //实例化模型类
         $this->admin_content_comment = M('admin_content_comment');
+        //数据插入
         $result = $this->admin_content_comment->add($data);
+        //返回一个值
         if ($result){
             echo '1';
         }
@@ -143,9 +148,8 @@ class AdminrcmdController extends Controller{
         $p = I('p');
         $type_id = I('type_id');
         $this->admin_recommend_lists= M('admin_recommend_lists'); // 实例化User对象
-        $num = 2;//每页显示的条数
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $list = $this->admin_recommend_lists->where("type_id=$type_id")->limit($p*$num,$num)->select();
+        $list = $this->admin_recommend_lists->where("type_id=$type_id")->limit($p*$this->_num,$this->_num)->select();
         echo json_encode($list);
 
     }
@@ -163,13 +167,21 @@ class AdminrcmdController extends Controller{
      * 评论页加载
      */
     public function commentpage(){
+        //每页个数
+        $num = 20;
         //获取ar_id,p
         $ar_id = (int)I('ar_id');
         $p = (int)I('p');
         //实例化模型类
         $this->admin_content_comment = M('admin_content_comment');
+        //查询起始行
+        $firstRow = $p*$this->_commentnum;
         //查询
-        $comments = $this->admin_content_comment->where("MediaID=$ar_id")->order('time desc,PariseCount desc')->limit($p*20,20)->select();
+        $comments = $this->admin_content_comment->where("MediaID=$ar_id")->order('time desc,PariseCount desc')->limit($firstRow,$this->_commentnum)->select();
+        //将时间戳转化为时间格式
+        foreach ($comments as $key => $comment){
+            $comments[$key]['time']=date('Y-m-d H:i', $comment['time']);
+        }
         //输出json串
         if ($comments) {
             echo json_encode($comments);
@@ -186,7 +198,11 @@ class AdminrcmdController extends Controller{
         //实例化模型类
         $this->admin_content_comment = M('admin_content_comment');
         //查询
-        $comments = $this->admin_content_comment->where("MediaID=$ar_id")->order('time desc,PariseCount desc')->limit(20)->select();
+        $comments = $this->admin_content_comment->where("MediaID=$ar_id")->order('time desc,PariseCount desc')->limit($this->_commentnum)->select();
+        //将时间戳转化为时间格式
+        foreach ($comments as $key => $comment){
+            $comments[$key]['time']=date('Y-m-d H:i', $comment['time']);
+        }
         //输出json串
         echo json_encode($comments);
     }
