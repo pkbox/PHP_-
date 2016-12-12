@@ -106,4 +106,20 @@ class UsershomeController extends Controller{
         }
 
     }
+     public function collection_c(){
+        $val = I('val');
+        $uid = session('userid');
+        $uid = 1;//测试用
+        if(I('key')=='ar_id'){
+            $this->admin_recommend_collection = M("admin_recommend_collection");
+            if($this->admin_recommend_collection->where("uid=$uid and mediaid=$val")->delete()){
+                echo '1';
+            }
+        }elseif (I('key')=='ur_id'){
+            $this->user_recommend_collection = M("user_recommend_collection");
+            if ($this->user_recommend_collection->where("uid=$uid and mediaid=$val")->delete()){
+                echo '1';
+            }
+        }
+    }
 }
