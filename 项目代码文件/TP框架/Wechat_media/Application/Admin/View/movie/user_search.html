@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/admin.css">
+    <script src="__PUBLIC__/admin/js/jquery.js"></script>
+    <script src="__PUBLIC__/admin/js/pintuer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder">用户推荐列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
+    <div class="padding border-bottom">
+        <ul class="search" style="padding-left:10px;">
+            <form method="post" action="{:U('admin/movie/user_search')}" id="listform">
+                <li style="float:right">
+                    <input type="text" placeholder="请输入推荐人姓名" name="name" class="input" style="width:250px; line-height:17px;display:inline-block" />
+                    <button class="button border-main icon-search" type="submit"> 搜索</button>
+                </li>
+            </form>
+        </ul>
+    </div>
+    <table class="table table-hover text-center">
+            <tr>
+                <th width="100" style="text-align:left; padding-left:20px;">ID</th>
+                <th>推荐人</th>
+                <th>电影名称</th>
+                <th>封面图</th>
+                <th>推荐理由</th>
+                <th>推荐时间</th>
+                <th>获赞数量</th>
+                <th width="20%">操作</th>
+            </tr>
+        <if condition="$results.length eq 1 ">
+                <td style="text-align:left; "><input type="checkbox" name="id[]" value="{$results.ur_id}"/>1</td>
+                <td>{$results[0].name}</td>
+                <td>{$results.title}</td>
+                <td ><img src="{$results.thumb}" alt="" width="70" height="50" /></td>
+                <td style="text-align:left; ">{$results.reason}</td>
+                <td>{$results.createtime}</td>
+                <td>{$results.parisecount}</td>
+                <td>
+                    <div class="button-group">
+                        <a class="button button2 border-main" href="{:U('admin/movie/user_detail/id')}/{$results.ur_id}"><span class="icon-edit"></span> 详情</a>
+                        <a class="button button3 border-red" href="javascript:void(0)" ><span class="icon-trash-o"></span> 删除</a>
+                    </div>
+                </td>
+            </tr>
+        <else />
+            <volist name="results" id="vo">
+                <tr>
+                    <td style="text-align:left; "><input type="checkbox" name="id[]" value="{$vo.ur_id}"/>{$i}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.title}</td>
+                    <td ><img src="{$vo.thumb}" alt="" width="70" height="50" /></td>
+                    <td style="text-align:left; ">{$vo.reason}</td>
+                    <td>{$vo.createtime}</td>
+                    <td>{$vo.parisecount}</td>
+                    <td>
+                        <div class="button-group">
+                            <a class="button button2 border-main" href="{:U('admin/movie/user_detail/id')}/{$vo.ur_id}"><span class="icon-edit"></span> 详情</a>
+                            <a class="button button3 border-red" href="javascript:void(0)" ><span class="icon-trash-o"></span> 删除</a>
+                        </div>
+                    </td>
+                </tr>
+            </volist>
+        </if>
+
+        </table>
+    </div>
+</form>
+<script type="text/javascript">
+
+    //单个删除
+    function delet(){
+        $(".button3").click(function(){
+            if(confirm("您确定要删除吗?")){
+                var tr=$(this).parent().parent().parent();
+                var id = $.trim(tr.children("td").eq(0).children("input").val());
+                console.log(id);
+                del(id);
+                tr.remove();
+            }
+        })
+    }
+    delet();
+    /*
+     单个删除
+     */
+    function del(id) {
+        var url="{:U('admin/movie/user_delete')}";
+        $.post(url,{"id":id},function (data){
+            if(data=='1'){
+                return true;
+            }else {
+                return false;
+            }
+        })
+    }
+    /*
+     搜索
+     */
+    $(".icon-search").unbind().click(function () {
+        $("#listform").submit();
+    });
+</script>
+</body>
+</html>
