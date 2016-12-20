@@ -1,12 +1,12 @@
-<html lang="zh-CH">
+<?php if (!defined('THINK_PATH')) exit();?><html lang="zh-CH">
 <head>
     <meta charset="UTF-8">
     <title>电影金曲</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="__PUBLIC__/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="__PUBLIC__/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="__PUBLIC__/home/css/demos.css" type="text/css"/>
-    <link rel="stylesheet" href="__PUBLIC__/home/dist/css/bootstrap-icon.css">
+    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/dist/css/bootstrap-icon.css">
     <style>
         .left{
             width: 30%;
@@ -90,7 +90,7 @@
             width: auto;
             height: 50px;
             font-size: 20px;
-            color: black;
+            color: #000000;
             line-height: 50px;
         }
 
@@ -99,6 +99,7 @@
             height: 40px;
             border: 1px solid white;
             margin-left: 4px;
+            color: #979797;
         }
 
         .weui_cells .weui_cell .weui_cells_bd {
@@ -108,6 +109,7 @@
             font-size: 18px;
             text-align: left;
             padding-left: 20px;
+
         }
     </style>
 </head>
@@ -142,23 +144,21 @@
             </div>
             <div class="title">
                 <div>
-                    <p>播放列表 ></p>
+                    <p>播放列表 </p>
                 </div>
             </div>
-            <volist name="musicrcmd" id="vo">
-                <div class="weui_cell">
+            <?php if(is_array($musicrcmd)): $i = 0; $__LIST__ = $musicrcmd;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="weui_cell">
                     <div class="weui_cells_bd ">
                         <!--<?php  var_dump($vo); ?>-->
-                        {$vo.musicname} - {$vo.singer}<input type="hidden" class="{$vo.frommedia}" value="{$vo.musicaddress}"  name="{$vo.music_id}"/>
+                        <?php echo ($vo["musicname"]); ?> - <?php echo ($vo["singer"]); ?><input type="hidden" class="<?php echo ($vo["frommedia"]); ?>" value="<?php echo ($vo["musicaddress"]); ?>"  name="<?php echo ($vo["music_id"]); ?>"/>
                     </div>
-                </div>
-            </volist>
+                </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
     </div>
 </div>
 </body>
-<script type="text/javascript" src="__PUBLIC__/home/lib/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="__PUBLIC__/home/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Wechat_media/Public/home/js/jquery-weui.min.js"></script>
 <script>
     var now=$(".weui_cells_bd").children('input[name=1]');
     var songsrc= now.val();
@@ -270,7 +270,13 @@
             $(".js_progress").css("width", ProcessNow);
             var currentTime = timeFormat(audio.currentTime);
             var timeAll = timeFormat(TimeAll());
-            $(".SongTime").html(currentTime + " | " + timeAll);
+            //alert(timeAll );
+            if(timeAll=='0NaN:0NaN')
+            {
+                $(".SongTime").html(currentTime + " | " + "00:00");
+            }else{
+                $(".SongTime").html(currentTime + " | " + timeAll);
+            }
         }, 1000);
     }
     function timeFormat(number) {

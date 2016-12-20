@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="__PUBLIC__/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="__PUBLIC__/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="__PUBLIC__/home/css/demos.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
     <title>电影内容页</title>
     <style>
         .weui_search_bar{
@@ -127,7 +127,7 @@
     <div class="weui_tab_bd">
         <!--影视金曲-->
         <div class="vm">
-            <img src="{$content['contentimg']}" />
+            <img src="<?php echo ($content['contentimg']); ?>" />
         </div>
             <!--音乐播放器-->
         <div>
@@ -135,9 +135,9 @@
         <!--结束影视金曲-->
         <!--影视信息开始-->
         <div id="oval">
-                <p>导演：{$content['director']}</p>
-                <p>主演：{$content['actor']['0']}<a href="javascript:void(0);" class="more">//更多</a><input hidden value="{$content['actor']['1']}"></p>
-                <p>类型：{$content['type']}</p>
+                <p>导演：<?php echo ($content['director']); ?></p>
+                <p>主演：<?php echo ($content['actor']['0']); ?><a href="javascript:void(0);" class="more">//更多</a><input hidden value="<?php echo ($content['actor']['1']); ?>"></p>
+                <p>类型：<?php echo ($content['type']); ?></p>
         </div>
         <!--影视信息结束-->
         <!--简介-->
@@ -145,7 +145,7 @@
             <div class="bit">简介：</div>
             <div class="btc">
                 <div class="bp">
-                    <p>{$content['introduce']}</p>
+                    <p><?php echo ($content['introduce']); ?></p>
                 </div>
             </div>
         </div>
@@ -153,26 +153,24 @@
         <!--评论-->
         <div class="editorialize">快评:</div>
         <div class="weui_cells">
-            <volist name="comments" id="comment">
-                <div class="weui_cell">
+            <?php if(is_array($comments)): $i = 0; $__LIST__ = $comments;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?><div class="weui_cell">
                     <div class="head">
-                        <img src="{$comment.userimg}">
+                        <img src="<?php echo ($comment["userimg"]); ?>">
                     </div>
                     <div class="username">
-                        <p>{$comment.username}</p>
+                        <p><?php echo ($comment["username"]); ?></p>
                     </div>
                     <div class="time">
-                        <p>{$comment.time|date="Y-m-d H:i",###}</p>
+                        <p><?php echo (date("Y-m-d H:i",$comment["time"])); ?></p>
                     </div>
                     <div class="zan">
-                        <div class="weui_btn weui_btn_mini weui_btn_default"><p>赞{$comment.parisecount}</p><input class="id" hidden value="{$comment.c_id}"></div>
+                        <div class="weui_btn weui_btn_mini weui_btn_default"><p>赞<?php echo ($comment["parisecount"]); ?></p><input class="id" hidden value="<?php echo ($comment["c_id"]); ?>"></div>
                     </div>
                 </div>
                 <div class="comment_content">
-                    <p>{$comment.content}</p>
-                </div>
-            </volist>
-            <a href="{:U('home/adminrcmd/media_comment/id')}/{$content.ar_id}" class="weui_btn weui_btn_default">点击查看更多</a>
+                    <p><?php echo ($comment["content"]); ?></p>
+                </div><?php endforeach; endif; else: echo "" ;endif; ?>
+            <a href="<?php echo U('home/adminrcmd/media_comment/id');?>/<?php echo ($content["ar_id"]); ?>" class="weui_btn weui_btn_default">点击查看更多</a>
         </div>
         <!--结束评论-->
     </div>
@@ -203,13 +201,13 @@
     </div>
 </div>
 </body>
-<script src="__PUBLIC__/home/lib/jquery-2.1.4.js"></script>
-<script src="__PUBLIC__/home/lib/fastclick.js"></script>
-<script src="__PUBLIC__/home/js/jquery-weui.js"></script>
+<script src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
+<script src="/Wechat_media/Public/home/lib/fastclick.js"></script>
+<script src="/Wechat_media/Public/home/js/jquery-weui.js"></script>
 <script>
     var MAX_LENGTH=200; //最大输入字数
     $(document).ready(function(){
-        $.post("{:U('home/adminrcmd/getsession')}",function (data) {
+        $.post("<?php echo U('home/adminrcmd/getsession');?>",function (data) {
             var session = jQuery.parseJSON(data)
             $.each(session,function (n,value) {
                 $(".id").each(function () {
@@ -226,12 +224,12 @@
         var id = $(this).children(".id").val();
         var num = parseInt($.trim($(this).text()).substr(1));
         if (classname=='praise'){
-            var url="{:U('home/adminrcmd/praise_c')}";
+            var url="<?php echo U('home/adminrcmd/praise_c');?>";
             $.post(url,{"c_id":id});
             num = num-1;
             $(this).removeClass("praise");
         }else{
-            var url="{:U('home/adminrcmd/praise')}";
+            var url="<?php echo U('home/adminrcmd/praise');?>";
             $.post(url,{"c_id":id});
             num = num+1;
             $(this).addClass("praise");
@@ -254,8 +252,8 @@
         if(content==''){
             $.toast("请输入评论内容",'text');
         }else {
-            var url="{:U('home/adminrcmd/comment_publish')}";
-            var mediaid="{$content.ar_id}";
+            var url="<?php echo U('home/adminrcmd/comment_publish');?>";
+            var mediaid="<?php echo ($content["ar_id"]); ?>";
             $.post(url, {'content':content,'mediaid':mediaid},function (data) {
                 if (data=='1'){
                     $(".comment").hide();

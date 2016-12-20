@@ -104,9 +104,11 @@ class UsershomeController extends Controller{
             }
             echo json_encode($lt);
         }
-
     }
-     public function collection_c(){
+    /**
+     * 取消收藏动作
+     */
+    public function collection_c(){
         $val = I('val');
         $uid = session('userid');
         $uid = 1;//测试用

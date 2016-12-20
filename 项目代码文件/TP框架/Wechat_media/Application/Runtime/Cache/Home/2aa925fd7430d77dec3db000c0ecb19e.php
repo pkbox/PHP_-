@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="__PUBLIC__/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="__PUBLIC__/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="__PUBLIC__/home/css/demos.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
     <title>找一找</title>
     <style>
         .media_hd{
@@ -55,42 +55,42 @@
     <div class="weui_tabbar">
         <a href="user_recommend_index.html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/home.png" alt="">
+                <img src="/Wechat_media/Public/home/images/home.png" alt="">
             </div>
             <p class="weui_tabbar_label">主页</p>
         </a>
         <a href=" user_recommend_search.html" class="weui_tabbar_item weui_bar_item_on">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/sousuo.png" alt="">
+                <img src="/Wechat_media/Public/home/images/sousuo.png" alt="">
             </div>
             <p class="weui_tabbar_label">搜索</p>
         </a>
         <a href="user_recommend.html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/woyaotuijian.png" alt="">
+                <img src="/Wechat_media/Public/home/images/woyaotuijian.png" alt="">
             </div>
             <p class="weui_tabbar_label">我要推荐</p>
         </a>
         <a href=".html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/gerenzhongxin10.png" alt="">
+                <img src="/Wechat_media/Public/home/images/gerenzhongxin10.png" alt="">
             </div>
             <p class="weui_tabbar_label">个人中心</p>
         </a>
     </div>
 </div>
-<script src="__PUBLIC__/home/lib/jquery-2.1.4.js"></script>
-<script src="__PUBLIC__/home/lib/fastclick.js"></script>
+<script src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
+<script src="/Wechat_media/Public/home/lib/fastclick.js"></script>
 <script>
     $(function() {
         FastClick.attach(document.body);
     });
 </script>
-<script src="__PUBLIC__/home/js/jquery-weui.js"></script>
+<script src="/Wechat_media/Public/home/js/jquery-weui.js"></script>
 <script>
     //            判定用户是否收藏
     function collectioncheck() {
-        $.post("{:U('home/usersrcmd/getcollection')}",function (data) {
+        $.post("<?php echo U('home/usersrcmd/getcollection');?>",function (data) {
             var collection = jQuery.parseJSON(data)
             $.each(collection,function (n,value) {
                 $(".collection .id").each(function () {
@@ -104,7 +104,7 @@
     }
     //            判断用户是否点赞
     function praisecheck() {
-        $.post("{:U('home/usersrcmd/getsession')}",function (data) {
+        $.post("<?php echo U('home/usersrcmd/getsession');?>",function (data) {
             var session = jQuery.parseJSON(data)
             $.each(session,function (n,value) {
                 $(".praise .id").each(function () {
@@ -124,7 +124,7 @@
             if (classname=='color'){
 
             }else{
-                var url="{:U('home/usersrcmd/collection')}";
+                var url="<?php echo U('home/usersrcmd/collection');?>";
                 $.post(url,{"mediaid":id});
                 $(this).addClass("color");
             }
@@ -137,12 +137,12 @@
             var id = $(this).children(".id").val();
             var num = parseInt($.trim($(this).text()).substr(2));
             if (classname=='color'){
-                var url="{:U('home/usersrcmd/praise_c')}";
+                var url="<?php echo U('home/usersrcmd/praise_c');?>";
                 $.post(url,{"ur_id":id});
                 num = num-1;
                 $(this).removeClass("color");
             }else{
-                var url="{:U('home/usersrcmd/praise')}";
+                var url="<?php echo U('home/usersrcmd/praise');?>";
                 $.post(url,{"ur_id":id});
                 num = num+1;
                 $(this).addClass("color");
@@ -155,7 +155,7 @@
         maxDate:'2016-12-10',
         minDate:'2016-10-1',
         onClose: function (p) {
-            var url = "{:U('home/usersrcmd/search')}";
+            var url = "<?php echo U('home/usersrcmd/search');?>";
             var time = $("#date").val();
             $.post(url,{'time':time},function (data) {
                 if (data=='0'){
@@ -164,7 +164,7 @@
                     $(".content").html('');
                     var recommends = jQuery.parseJSON(data);
                     for (var i=0;i<recommends.length;i++){
-                        var urli = "{:U('home/usersrcmd/media_content/UR_Id')}/"+recommends[i].ur_id;
+                        var urli = "<?php echo U('home/usersrcmd/media_content/UR_Id');?>/"+recommends[i].ur_id;
                         $(".content").append(
                                 '<div class="weui_panel weui_panel_access">' +
                                 '<div class="weui_panel_bd">' +

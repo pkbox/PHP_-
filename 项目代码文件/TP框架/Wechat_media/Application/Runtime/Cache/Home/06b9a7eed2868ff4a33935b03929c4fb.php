@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>用户推荐</title>
-    <link rel="stylesheet" href="__PUBLIC__/home/lib/weui.min.css">
-    <link rel="stylesheet" href="__PUBLIC__/home/css/jquery-weui.css">
-    <link rel="stylesheet" href="__PUBLIC__/home/css/demos.css">
+    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css">
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.css">
+    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css">
     <style>
         .Preview{
             width: 28%;
@@ -41,7 +41,7 @@
                     <input class="weui_input" type="text" placeholder="请输入验证码">
                 </div>
                 <div class="weui_cell_ft">
-                    <img src="{:U('home/usersrcmd/verify')}">
+                    <img src="<?php echo U('home/usersrcmd/verify');?>">
                 </div>
             </div>
             <div class="weui_cell">
@@ -68,35 +68,35 @@
     <div class="weui_tabbar">
         <a href="user_recommend_index.html" class="weui_tabbar_item weui_bar_item_on">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/home.png" alt="">
+                <img src="/Wechat_media/Public/home/images/home.png" alt="">
             </div>
             <p class="weui_tabbar_label">主页</p>
         </a>
         <a href=" user_recommend_search.html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/sousuo.png" alt="">
+                <img src="/Wechat_media/Public/home/images/sousuo.png" alt="">
             </div>
             <p class="weui_tabbar_label">搜索</p>
         </a>
         <a href="user_recommend.html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/woyaotuijian.png" alt="">
+                <img src="/Wechat_media/Public/home/images/woyaotuijian.png" alt="">
             </div>
             <p class="weui_tabbar_label">我要推荐</p>
         </a>
-        <a href="{:U('home/usershome/my_home')}" class="weui_tabbar_item">
+        <a href="<?php echo U('home/usershome/my_home');?>" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/gerenzhongxin10.png" alt="">
+                <img src="/Wechat_media/Public/home/images/gerenzhongxin10.png" alt="">
             </div>
             <p class="weui_tabbar_label">个人中心</p>
         </a>
     </div>
 </div>
 </body>
-<script src="__PUBLIC__/home/lib/jquery-2.1.4.js"></script>
-<script src="__PUBLIC__/home/lib/fastclick.js"></script>
-<script src="__PUBLIC__/home/js/jquery-weui.js"></script>
-<script src="__PUBLIC__/home/js/ajaxfileupload.js"></script>
+<script src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
+<script src="/Wechat_media/Public/home/lib/fastclick.js"></script>
+<script src="/Wechat_media/Public/home/js/jquery-weui.js"></script>
+<script src="/Wechat_media/Public/home/js/ajaxfileupload.js"></script>
 <script>
     var MAX_LENGTH=200; //最大输入字数
     var verifycheck=false;
@@ -112,7 +112,7 @@
     });
     //刷新验证码
     $(".weui_vcode .weui_cell_ft").children("img").unbind().click(function () {
-        $(this).attr('src',"{:U('home/usersrcmd/verify')}");
+        $(this).attr('src',"<?php echo U('home/usersrcmd/verify');?>");
         $(".weui_vcode .weui_input").val('');
         verifycheck==false;
     });
@@ -123,7 +123,7 @@
         }else {
             var title = $(".weui_cell .weui_input").val();
             var reason = $(".weui_textarea").val();
-            var url = "{:U('home/usersrcmd/publish')}";
+            var url = "<?php echo U('home/usersrcmd/publish');?>";
             $.ajaxFileUpload
             (
                     {
@@ -137,7 +137,7 @@
                         {
                             if (data=='1'){
                                 $.toast('发表成功');
-                                location.href = "{:U('home/usersrcmd/user_recommend_index')}";
+                                location.href = "<?php echo U('home/usersrcmd/user_recommend_index');?>";
                             }else{
                                 $.toast('发表失败','text');
                                 window.location.reload();
@@ -173,12 +173,12 @@
     //输入验证码
     $(".weui_vcode .weui_input").change(function () {
         var verify = $(".weui_vcode .weui_input").val();
-        var url="{:U('home/usersrcmd/check_verify')}";
+        var url="<?php echo U('home/usersrcmd/check_verify');?>";
         $.post(url,{'verify':verify},function (data) {
             if (data == '1'){
                 verifycheck=true;
             }else if (data == '0'){
-                $(".weui_vcode .weui_cell_ft").children('img').attr('src',"{:U('home/usersrcmd/verify')}");
+                $(".weui_vcode .weui_cell_ft").children('img').attr('src',"<?php echo U('home/usersrcmd/verify');?>");
                 $(".weui_vcode .weui_input").val('');
                 $.toptip('验证码错误');
                 verifycheck=false;
