@@ -27,15 +27,19 @@ class AdminrcmdController extends Controller{
 /*
  * 显示影视推荐列表页
  */
-    public function media_lists(){
+       public function media_lists(){
         $type_id = I('type_id');
         $this->admin_recommend_lists = M('admin_recommend_lists');
         $result = $this->admin_recommend_lists->
             where("type_id = $type_id")->
             order('createTime desc')->
             limit($this->_num)->select();
+        $this->media_type = M('media_type');
+        $type = $this->media_type->where("id=$type_id")->field('type')->select();
+        $type = $type[0]['type'];
         $this->assign('admin_recommend_lists',$result);
         $this->assign('type_id',$type_id);
+        $this->assign('type',$type);
         $this->display();
 
     }
