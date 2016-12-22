@@ -12,6 +12,23 @@ class MovieController extends Controller{
     protected $user_recommend_lists;//用户推荐列表
     protected $user_recommend_collection;
     public $_num = 10;//页面显示数量
+
+    public function _initialize() {
+        if (session('name')){
+            $name = session('name');
+            //实例化模型
+            $this->_user = M('think_user');
+            if($this->_user->where("name='$name'")->count()){
+                return true;
+            }else{
+                $url = U('admin/login/index');
+                header("location:$url");
+            }
+        }else{
+            $url = U('admin/login/index');
+            header("location:$url");
+        }
+    }
     /*
      * 官方推荐
      */
@@ -188,5 +205,69 @@ public function user_search()
         $this->display('user_error');
     }
 }
+    public function movie_automatic(){
+        $this->media_type = M('media_type');
+        $result = $this->media_type->select();
+        $this->assign('types',$result);
+        $this->display();
+    }
+    public function getdata(){
+        $doubanid = I('doubanid');
+        $limit = $this->_num;
+        $start = I('page')*$limit;
+        $url = "https://movie.douban.com/j/chart/top_list?type=$doubanid&interval_id=100%3A90&action=unwatched&start=$start&limit=$limit";
+        $data = file_get_contents($url);
+        echo $data;
+    }
+    public function adddata(){
+        $data = I('data');
+        $typeid = I('typeid');
+        $recommend['title']=$data['title'];
+        $recommend['thumb']=$data['cover_url'];
+        $recommend['reason'] = '无';
+        $recommend['time'] = $data['release_date'];
+        $recommend['Director'] = '无';
+        $recommend['Actor'] = implode('/',$data['actors']);
+        $recommend['Score'] = $data['score'];
+        $recommend['Type_id'] = (int)$typeid;
+        $recommend['introduce'] = '无';
+        $recommend['VideoAddress'] = '无';
+        $recommend['contentImg'] = $data['cover_url'];
+        $this->admin_recommend_lists = M('admin_recommend_lists');
+        $id = $this->admin_recommend_lists->add($recommend);
+        $json['curlid'] = $data['id'];
+        $json['id'] = $id;
+        echo json_encode($json);
+    }
+    public function addother(){
+        $urlid = I('urlid');
+        $AR_ID = (int)I('AR_ID');
+        $url = "https://movie.douban.com/subject/$urlid/";
+        $html = file_get_contents($url);
+        $url2 = U('admin/movie/saveother');
+        echo $html;
+        print <<<STR
+<script>
+            $("div").hide();
+            $("body").append('正在添加');
+            var div1 = $(".subject.clearfix");
+            var div2 = $("#link-report");
+            var div3 = $(".comment-item").eq(0);
+            var reason = $.trim(div3.children().children("p").text());
+            var AR_ID = $AR_ID;
+            var contentImg = div1.children().eq(0).children().children().attr('src');
+            var Director = div1.children().eq(1).children().eq(0).children().eq(1).text();
+            var introduce = $.trim(div2.children().eq(0).text());
+            $.post('$url2',{'AR_ID':AR_ID,'contentImg':contentImg,'Director':Director,'introduce':introduce,'reason':reason},function(){window.opener = null;window.open('', '_self'); window.close()});
+        </script>
+STR;
+    }
+    public function saveother(){
+        $data = I();
+        $AR_ID = $data['AR_ID'];
+        unset($data['AR_ID']);
+        $this->admin_recommend_lists = M('admin_recommend_lists');
+        $this->admin_recommend_lists->where("AR_ID=$AR_ID")->save($data);
+    }
 }
 
