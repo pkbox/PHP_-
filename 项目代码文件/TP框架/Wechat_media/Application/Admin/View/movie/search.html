@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/admin.css">
+    <script src="__PUBLIC__/admin/js/jquery.js"></script>
+    <script src="__PUBLIC__/admin/js/pintuer.js"></script>
+</head>
+<body>
+<form method="post" action="{:U('admin/movie/search')}" id="listform">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong class="icon-reorder">官方推荐列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
+        <div class="padding border-bottom">
+            <ul class="search" style="padding-left:10px;">
+                <li>分类：</li>
+                <li style="width:100px; height:40px;">
+                    <select name="cid" class="input" style="width:200px; line-height:17px;" >
+                        <option value="0">请选择分类</option>
+                        <option value="1">科幻</option>
+                        <option value="2">悬疑</option>
+                        <option value="3">励志</option>
+                        <option value="4">动作</option>
+                        <option value="5">爱情</option>
+                        <option value="6">恐怖</option>
+                        <option value="7">剧情</option>
+                        <option value="8">喜剧</option>
+                    </select>
+                </li>
+                <li> <a class="button border-main icon-plus-square-o" style="margin-left:100px;" href="##"> 获取内容</a> </li>
+                <li style="float:right">
+                    <input type="text" placeholder="请输入搜索电影名称" name="title" class="input" style="width:250px; line-height:17px;display:inline-block" />
+                    <button class="button border-main icon-search" type="submit"> 搜索</button>
+                </li>
+            </ul>
+        </div>
+        <table class="table table-hover text-center">
+            <tr>
+                <th width="100" style="text-align:left; padding-left:20px;">ID</th>
+                <th>电影名称</th>
+                <th>封面图</th>
+                <th>导演</th>
+                <th>主演</th>
+                <th>上映时间</th>
+                <th>电影类别</th>
+                <th width="310">操作</th>
+            </tr>
+                <tr>
+                    <td style="text-align:left; padding-left:20px;"><input type="checkbox" name="id[]" value="" />{$results.ar_id}</td>
+                    <td>{$results.title}</td>
+                    <td ><img src="{$results.thumb}" alt="" width="70" height="50" /></td>
+                    <td>{$results.director}</td>
+                    <td>{$results.actor}</td>
+                    <td>{$results.time}</td>
+                    <td></td>
+                    <td>
+                        <div class="button-group">
+                            <a class="button button1 border-main" href="{:U('admin/movie/add/id')}/{$results.ar_id}"><span class="icon-edit"></span> 修改</a>
+                            <a class="button button2 border-main" href="{:U('admin/movie/detail/id')}/{$results.ar_id}"><span class="icon-edit"></span> 详情</a>
+                            <a class="button button3 border-red" href="javascript:void(0)" ><span class="icon-trash-o"></span> 删除</a>
+                        </div>
+                    </td>
+                </tr>
+        </table>
+    </div>
+</form>
+<script type="text/javascript">
+    //单个删除
+    function delet(){
+        $(".button3").click(function(){
+            if(confirm("您确定要删除吗?")){
+                var tr=$(this).parent().parent().parent();
+                var id = $.trim(tr.children("td").eq(0).children("input").val());
+                //console.log(id);
+                del(id);
+                tr.remove();
+            }
+        })
+    }
+    delet();
+    /*
+     单个删除
+     */
+    function del(id) {
+        var url="{:U('admin/movie/movie_delete')}";
+        $.post(url,{"id":id},function (data){
+            if(data=='1'){
+                return true;
+            }else {
+                return false;
+            }
+        })
+    }
+    //查看详情
+    function select() {
+        $(".button2").click(function(){
+            var url="{:U('admin/movie/detail')}";
+            var tr=$(this).parent().parent().parent();
+            var id = $.trim(tr.children("td").eq(0).text());
+            $.post(url,{"id":id},function (data){
+
+            })
+        })
+    }
+    select();
+    //全选
+    function checkall() {
+        $("#checkall").click(function(){
+            if (this.checked){
+                $("input[name='id[]']").each(function(){
+                    this.checked = true;
+                });
+            }else{
+                $("input[name='id[]']").each(function(){
+                    this.checked = false;
+                });
+            }
+        })
+    }
+    checkall();
+    //单个选择
+    function check () {
+        $("input[name='id[]']").click(function(){
+            $("#checkall").attr('checked',false);
+        });
+    }
+    check();
+    //批量删除
+    function DelSelect(){
+        var Checkbox=false;
+        $("input[name='id[]']").each(function(){
+            if (this.checked==true) {
+                Checkbox=true;
+            }
+        });
+        if (Checkbox){
+            var t=confirm("您确认要删除选中的内容吗？");
+            if (t==false) return false;
+            var trnum = $(".table-hover").children("tbody").children('tr').length;
+            $("input[name='id[]']").each(function(key){
+                if (this.checked) {
+                    del($(this).val());
+                    $(this).parent().parent().remove();
+                }
+            });
+        }
+        else{
+            alert("请选择您要删除的内容!");
+            return false;
+        }
+    }
+    /*
+     搜索
+     */
+    $(".icon-search").unbind().click(function () {
+        $("#listform").submit();
+    })
+
+    /*
+     分类选择
+     */
+    $(".icon-plus-square-o").unbind().click(function(){
+        var option=$(".search").children('li').eq(1).children('select').children('option:selected').val();
+        //console.log(option);
+        var url="{:U('admin/movie/obtain')}";
+        $.post(url,{"option":option},function (data) {
+            if(data=='1'){
+                window.location.href="{:U('admin/movie/error')}";
+            }else{
+                data=jQuery.parseJSON(data);
+                //console.log(data);
+                /*
+                 标题
+                 */
+                $(".table").html(
+                        '<tr>'+
+                        '<th width="100" style="text-align:left; padding-left:20px;">ID</th>'+
+                        '<th>电影名称</th>'+
+                        '<th>封面图</th>'+
+                        '<th>导演</th>'+
+                        '<th>主演</th>'+
+                        '<th>上映时间</th>'+
+                        '<th>电影类别</th>'+
+                        '<th width="310">操作</th>'+
+                        '</tr>'
+                );
+                var y=0;
+                /*
+                 获取的内容
+                 */
+                for (i=0;i<data.length;i++){
+                    y=y+1;
+                    $(".table").append(
+                            '<tr>'+
+                            '<td style="text-align:left; "><input type="checkbox" name="id[]" value="'+data[i].ar_id+'"/>'+y+'</td>'+
+                            '<td>'+data[i].title+'</td>'+
+                            '<td ><img src="'+data[i].thumb+'" alt="" width="70" height="50" /></td>'+
+                            '<td>'+data[i].director+'</td>'+
+                            '<td>'+data[i].actor+'</td>'+
+                            '<td>'+data[i].time+'</td>'+
+                            '<td>'+data[i].type_id+'</td>'+
+                            '<td>'+
+                            '<div class="button-group">'+
+                            '<a class="button button1 border-main" href="'+"{:U('admin/movie/add/id')}/"+data[i].ar_id+'">'+'<span class="icon-edit"></span> 修改</a>'+
+                            '<a class="button button2 border-main" href="'+"{:U('admin/movie/detail/id')}/"+data[i].ar_id+'">'+'<span class="icon-edit"></span> 详情</a>'+
+                            '<a class="button button3 border-red" href="javascript:void(0)" ><span class="icon-trash-o"></span> 删除</a>'+
+                            '</div>'+
+                            '</td>'+
+                            '</tr>'
+                    );
+                }
+                $(".table").append(
+                        '<tr>'+
+                        '<td style="text-align:left; padding:19px 0;padding-left:20px;"><input type="checkbox" id="checkall"/>全选 </td>'+
+                        '<td colspan="7" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()"> 删除</a>'+
+                        '<a href="javascript:void(0)" style="padding:5px 15px; margin:0 10px;display:none;" class="button border-blue icon-edit" onclick="sorts()">样式</a>'+
+                        '</td>'+
+                        '</tr>'
+                )
+                delet();
+                check();
+                checkall();
+                select();
+            }
+
+        });
+    })
+</script>
+</body>
+</html>

@@ -250,7 +250,7 @@ $(function(){
 		if (mask=="1"){
 			$("body").append(masklayout);
 		}
-		detail='<div class="dialog-win" style="position:fixed;width:'+width+';z-index:11;">';
+		detail='<div class="dialog-win" style="position:fixed;width:'+width+';z-user:11;">';
 		if(getid!=null){detail=detail+$(getid).html();}
 		if(data!=null){detail=detail+$.ajax({url:data,async:false}).responseText;}
 		//alert(detail);

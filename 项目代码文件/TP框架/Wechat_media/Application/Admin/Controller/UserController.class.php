@@ -16,33 +16,20 @@ class UserController extends Controller
     private $_role_user;
 
     public function _initialize() {
-        //权限认证
-        //判断使用是否已经登陆
-        Rbac::checkLogin();
-        //在判断用户是否具有权限
-        if(!Rbac::AccessDecision()){
-            $this->error('您没权限！请换个账号登陆', C('USER_AUTH_GATEWAY'));
-        }
-
-    }
-    public function login(){
-
-        $this->display();
-    }
-    public function dologin(){
-        $name = I('name');
-        $passwd = md5(I('passwd'));
-        session('name',$name);
-        //判断是否存在
-        //实例化模型
-        $this->_user = M('think_user');
-        $count = $this->_user->where("name='$name' and passwd='$passwd'")->count();
-        if($count){
-            header('location:index');
+        if (session('name')){
+            $name = session('name');
+            //实例化模型
+            $this->_user = M('think_user');
+            if($this->_user->where("name='$name'")->count()){
+                return true;
+            }else{
+                $url = U('admin/login/index');
+                header("location:$url");
+            }
         }else{
-            $this->error("登陆失败，请重新登陆！");
+            $url = U('admin/login/index');
+            header("location:$url");
         }
-
     }
     /*
      * 显示后台首页
