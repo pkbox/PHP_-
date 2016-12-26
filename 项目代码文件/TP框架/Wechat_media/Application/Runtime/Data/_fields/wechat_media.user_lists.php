@@ -1,0 +1,1 @@
+a:6:{i:0;s:7:"User_Id";i:1;s:4:"Name";i:2;s:8:"Wechatid";i:3;s:4:"Time";s:3:"_pk";s:7:"User_Id";s:5:"_type";a:4:{s:7:"User_Id";s:7:"int(11)";s:4:"Name";s:11:"varchar(50)";s:8:"Wechatid";s:8:"char(28)";s:4:"Time";s:9:"timestamp";}}

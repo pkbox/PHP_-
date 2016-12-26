@@ -1,0 +1,1 @@
+a:6:{i:0;s:5:"ad_Id";i:1;s:4:"Time";i:2;s:3:"Uid";i:3;s:7:"MediaId";s:3:"_pk";s:5:"ad_Id";s:5:"_type";a:4:{s:5:"ad_Id";s:7:"int(11)";s:4:"Time";s:9:"timestamp";s:3:"Uid";s:7:"int(11)";s:7:"MediaId";s:7:"int(11)";}}

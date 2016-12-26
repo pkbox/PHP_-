@@ -1,0 +1,961 @@
+[ 2016-12-25T01:11:57+08:00 ] 101.226.89.117 /index.php/home//usershome/collection_c
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000353s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000515s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2016-12-25T01:11:58+08:00 ] 101.226.33.217 /index.php/home/usersrcmd/user_recommend_content/ur_id/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000808s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000864s ]
+SQL: SHOW COLUMNS FROM `user_recommend_lists` [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `user_recommend_comment` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `user_recommend_lists` WHERE ( UR_ID=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `user_recommend_comment` WHERE ( MediaID=3 )  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+NOTIC: [8] Undefined index: ar_id C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Runtime\Cache\Home\3a2202522abfdb2ced6ed4ba84a37037.php 第 353 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007884s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007933s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000601s ]
+
+[ 2016-12-25T01:11:58+08:00 ] 180.153.206.20 /index.php/home/usersrcmd/user_recommend_content/ur_id/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000332s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000574s ]
+SQL: SHOW COLUMNS FROM `user_recommend_lists` [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `user_recommend_comment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `user_recommend_lists` WHERE ( UR_ID=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `user_recommend_comment` WHERE ( MediaID=3 )  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+NOTIC: [8] Undefined index: ar_id C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Runtime\Cache\Home\3a2202522abfdb2ced6ed4ba84a37037.php 第 353 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008039s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008089s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000330s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000369s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000499s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000545s ]
+
+[ 2016-12-25T01:12:06+08:00 ] 180.153.214.176 /index.php/home/usersrcmd/user_recommend_content/ur_id/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000347s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000582s ]
+SQL: SHOW COLUMNS FROM `user_recommend_lists` [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `user_recommend_comment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `user_recommend_lists` WHERE ( UR_ID=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `user_recommend_comment` WHERE ( MediaID=3 )  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+NOTIC: [8] Undefined index: ar_id C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Runtime\Cache\Home\3a2202522abfdb2ced6ed4ba84a37037.php 第 353 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007882s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007931s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000505s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000567s ]
+
+[ 2016-12-25T01:12:06+08:00 ] 180.153.211.190 /index.php/home/usersrcmd/user_recommend_content/ur_id/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000337s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000495s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000549s ]
+SQL: SHOW COLUMNS FROM `user_recommend_lists` [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `user_recommend_comment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `user_recommend_lists` WHERE ( UR_ID=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `user_recommend_comment` WHERE ( MediaID=3 )  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+NOTIC: [8] Undefined index: ar_id C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Runtime\Cache\Home\3a2202522abfdb2ced6ed4ba84a37037.php 第 353 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008023s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008072s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000430s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000478s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000585s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000632s ]
+
+[ 2016-12-25T01:14:41+08:00 ] 101.226.69.246 /index.php/home/usersrcmd/praisecheck
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000529s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000583s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 303 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000845s ]
+
+[ 2016-12-25T01:47:19+08:00 ] 61.151.218.118 /index.php/home/usersrcmd/collection
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000605s ]
+SQL: SHOW COLUMNS FROM `user_recommend_collection` [ RunTime:0.0015s ]
+ERR: 1452:Cannot add or update a child row: a foreign key constraint fails (`wechat_media`.`user_recommend_collection`, CONSTRAINT `user_recommend_collection_ibfk_1` FOREIGN KEY (`MediaId`) REFERENCES `user_recommend_lists` (`UR_Id`))
+ [ SQL语句 ] : INSERT INTO `user_recommend_collection` (`MediaId`,`Uid`) VALUES ('0','0')
+ERR: 1452:Cannot add or update a child row: a foreign key constraint fails (`wechat_media`.`user_recommend_collection`, CONSTRAINT `user_recommend_collection_ibfk_1` FOREIGN KEY (`MediaId`) REFERENCES `user_recommend_lists` (`UR_Id`))
+ [ SQL语句 ] : INSERT INTO `user_recommend_collection` (`MediaId`,`Uid`) VALUES ('0','0')
+
+[ 2016-12-25T01:53:45+08:00 ] 183.57.53.222 /index.php/home/adminrcmd/admin_collection
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000596s ]
+SQL: SHOW COLUMNS FROM `admin_recommend_collection` [ RunTime:0.0016s ]
+ERR: 1452:Cannot add or update a child row: a foreign key constraint fails (`wechat_media`.`admin_recommend_collection`, CONSTRAINT `admin_recommend_collection_ibfk_1` FOREIGN KEY (`MediaId`) REFERENCES `admin_recommend_lists` (`AR_ID`))
+ [ SQL语句 ] : INSERT INTO `admin_recommend_collection` (`Uid`,`MediaId`) VALUES ('0','0')
+ERR: 1452:Cannot add or update a child row: a foreign key constraint fails (`wechat_media`.`admin_recommend_collection`, CONSTRAINT `admin_recommend_collection_ibfk_1` FOREIGN KEY (`MediaId`) REFERENCES `admin_recommend_lists` (`AR_ID`))
+ [ SQL语句 ] : INSERT INTO `admin_recommend_collection` (`Uid`,`MediaId`) VALUES ('0','0')
+
+[ 2016-12-25T01:56:27+08:00 ] 61.151.228.22 /index.php/home/usershome/my_collection.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+SQL: SHOW COLUMNS FROM `admin_recommend_collection` [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `admin_recommend_lists` [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `user_recommend_lists` [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `user_recommend_collection` [ RunTime:0.0012s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `mediaId` FROM `admin_recommend_collection` WHERE ( Uid= ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `mediaId` FROM `admin_recommend_collection` WHERE ( Uid= ) 
+
+[ 2016-12-25T02:01:13+08:00 ] 101.226.65.107 /index.php/home/adminrcmd/praise
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000337s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000584s ]
+SQL: SHOW COLUMNS FROM `admin_content_comment` [ RunTime:0.0015s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `admin_content_comment` SET `PariseCount`=PariseCount+1 WHERE ( C_ID= )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `admin_content_comment` SET `PariseCount`=PariseCount+1 WHERE ( C_ID= )
+
+[ 2016-12-25T02:01:39+08:00 ] 221.230.216.109 /index.php/home/adminrcmd/praise
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000556s ]
+SQL: SHOW COLUMNS FROM `admin_content_comment` [ RunTime:0.0014s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `admin_content_comment` SET `PariseCount`=PariseCount+1 WHERE ( C_ID= )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `admin_content_comment` SET `PariseCount`=PariseCount+1 WHERE ( C_ID= )
+
+[ 2016-12-25T02:02:24+08:00 ] 180.153.206.21 /home/usersrcmd/index?code%3D011Ha8af0eYXwy1NH97f0sd4af0Ha8aA%26state%3DSTATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000538s ]
+NOTIC: [2048] Non-static method Common\Library\WeChat::getUsers() should not be called statically, assuming $this from incompatible context C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 24 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 314 行.
+NOTIC: [8] Undefined property: stdClass::$access_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 317 行.
+NOTIC: [8] Undefined property: stdClass::$refresh_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 318 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 319 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 330 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 25 行.
+NOTIC: [8] Undefined property: stdClass::$nickname C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 26 行.
+SQL: SHOW COLUMNS FROM `user_lists` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `user_lists` WHERE ( Wechatid='' )  [ RunTime:0.0002s ]
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+
+[ 2016-12-25T02:14:04+08:00 ] 112.65.193.14 /index.php/home/adminrcmd/keep
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000353s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000595s ]
+SQL: SHOW COLUMNS FROM `admin_recommend_collection` [ RunTime:0.0016s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and Uid= ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `admin_recommend_collection` WHERE ( MediaId= and Uid= ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and Uid= ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `admin_recommend_collection` WHERE ( MediaId= and Uid= ) LIMIT 1  
+
+[ 2016-12-25T02:37:21+08:00 ] 101.226.33.206 /index.php/home/adminrcmd/comment_publish
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000554s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000609s ]
+SQL: SHOW COLUMNS FROM `admin_content_comment` [ RunTime:0.0015s ]
+ERR: 1048:Column 'userName' cannot be null
+ [ SQL语句 ] : INSERT INTO `admin_content_comment` (`MediaID`,`content`,`time`,`userName`,`userImg`) VALUES ('0','','1482604640',NULL,NULL)
+ERR: 1048:Column 'userName' cannot be null
+ [ SQL语句 ] : INSERT INTO `admin_content_comment` (`MediaID`,`content`,`time`,`userName`,`userImg`) VALUES ('0','','1482604640',NULL,NULL)
+
+[ 2016-12-25T02:37:28+08:00 ] 180.153.212.13 /home/adminrcmd/index?code%3D021ro4Uw0NoQWf1mWRSw04RQTw0ro4Um%26state%3DSTATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000345s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000552s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000606s ]
+NOTIC: [2048] Non-static method Common\Library\WeChat::getUsers() should not be called statically, assuming $this from incompatible context C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 23 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 314 行.
+NOTIC: [8] Undefined property: stdClass::$access_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 317 行.
+NOTIC: [8] Undefined property: stdClass::$refresh_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 318 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 319 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 330 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 24 行.
+NOTIC: [8] Undefined property: stdClass::$nickname C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `user_lists` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `user_lists` WHERE ( Wechatid='' )  [ RunTime:0.0003s ]
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+
+[ 2016-12-25T02:37:34+08:00 ] 101.226.51.229 /home/usersrcmd/user_recommend.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000352s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000574s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000140s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.187891s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.187974s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000382s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000578s ]
+
+[ 2016-12-25T02:46:48+08:00 ] 101.226.125.104 /index.php/home/usersrcmd/getcollection
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000353s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000601s ]
+SQL: SHOW COLUMNS FROM `user_recommend_collection` [ RunTime:0.0015s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `mediaid` FROM `user_recommend_collection` WHERE ( Uid= ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `mediaid` FROM `user_recommend_collection` WHERE ( Uid= ) 
+
+[ 2016-12-25T03:22:30+08:00 ] 183.57.53.196 /index.php/home/usersrcmd/com_praise
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000616s ]
+SQL: SHOW COLUMNS FROM `user_recommend_comment` [ RunTime:0.0016s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `user_recommend_comment` SET `PariseCount`=PariseCount+1 WHERE ( U_ID= )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `user_recommend_comment` SET `PariseCount`=PariseCount+1 WHERE ( U_ID= )
+
+[ 2016-12-25T03:25:45+08:00 ] 123.56.233.103 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000555s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000609s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000540s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000590s ]
+
+[ 2016-12-25T03:57:30+08:00 ] 101.226.51.227 /home/usersrcmd/index?code%253D011PfESy1l4ZOe0OIRVy1tWlSy1PfESH%2526state%253DSTATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+NOTIC: [2048] Non-static method Common\Library\WeChat::getUsers() should not be called statically, assuming $this from incompatible context C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 24 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 314 行.
+NOTIC: [8] Undefined property: stdClass::$access_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 317 行.
+NOTIC: [8] Undefined property: stdClass::$refresh_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 318 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 319 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 330 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 25 行.
+NOTIC: [8] Undefined property: stdClass::$nickname C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 26 行.
+SQL: SHOW COLUMNS FROM `user_lists` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `user_lists` WHERE ( Wechatid='' )  [ RunTime:0.0003s ]
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+
+[ 2016-12-25T04:13:29+08:00 ] 101.226.33.223 /?signature%253Dd6677376591142206cd3232f40aae87db92afec9%2526timestamp%253D1482555930%2526nonce%253D2065402058%2526openid%253DonvI2wQyMkuLc1rfBsTyvTRe76MA
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000350s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000535s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000589s ]
+
+[ 2016-12-25T04:14:31+08:00 ] 183.57.53.197 /index.php/home/usershome/about_us.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000358s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000574s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000121s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006816s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006887s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000508s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000553s ]
+
+[ 2016-12-25T05:00:43+08:00 ] 183.57.53.177 /index.php/home/usersrcmd/com_praise_c
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000352s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000519s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000580s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 284 行.
+SQL: SHOW COLUMNS FROM `user_recommend_comment` [ RunTime:0.0016s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `user_recommend_comment` SET `PariseCount`=PariseCount-1 WHERE ( U_ID= )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `user_recommend_comment` SET `PariseCount`=PariseCount-1 WHERE ( U_ID= )
+
+[ 2016-12-25T05:08:20+08:00 ] 119.147.21.64 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000345s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000581s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000815s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000864s ]
+
+[ 2016-12-25T05:59:14+08:00 ] 183.57.53.196 /index.php/home/adminrcmd/admin_collection
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000533s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000588s ]
+SQL: SHOW COLUMNS FROM `admin_recommend_collection` [ RunTime:0.0017s ]
+ERR: 1452:Cannot add or update a child row: a foreign key constraint fails (`wechat_media`.`admin_recommend_collection`, CONSTRAINT `admin_recommend_collection_ibfk_1` FOREIGN KEY (`MediaId`) REFERENCES `admin_recommend_lists` (`AR_ID`))
+ [ SQL语句 ] : INSERT INTO `admin_recommend_collection` (`Uid`,`MediaId`) VALUES ('0','0')
+ERR: 1452:Cannot add or update a child row: a foreign key constraint fails (`wechat_media`.`admin_recommend_collection`, CONSTRAINT `admin_recommend_collection_ibfk_1` FOREIGN KEY (`MediaId`) REFERENCES `admin_recommend_lists` (`AR_ID`))
+ [ SQL语句 ] : INSERT INTO `admin_recommend_collection` (`Uid`,`MediaId`) VALUES ('0','0')
+
+[ 2016-12-25T06:14:26+08:00 ] 101.226.68.215 /home/adminrcmd/index?code%253D021ro4Uw0NoQWf1mWRSw04RQTw0ro4Um%2526state%253DSTATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000649s ]
+NOTIC: [2048] Non-static method Common\Library\WeChat::getUsers() should not be called statically, assuming $this from incompatible context C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 23 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 314 行.
+NOTIC: [8] Undefined property: stdClass::$access_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 317 行.
+NOTIC: [8] Undefined property: stdClass::$refresh_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 318 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 319 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 330 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 24 行.
+NOTIC: [8] Undefined property: stdClass::$nickname C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `user_lists` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `user_lists` WHERE ( Wechatid='' )  [ RunTime:0.0002s ]
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+
+[ 2016-12-25T06:14:36+08:00 ] 101.226.66.173 /home/adminrcmd/index?code%253D021ro4Uw0NoQWf1mWRSw04RQTw0ro4Um%2526state%253DSTATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000477s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000532s ]
+NOTIC: [2048] Non-static method Common\Library\WeChat::getUsers() should not be called statically, assuming $this from incompatible context C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 23 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 314 行.
+NOTIC: [8] Undefined property: stdClass::$access_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 317 行.
+NOTIC: [8] Undefined property: stdClass::$refresh_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 318 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 319 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 330 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 24 行.
+NOTIC: [8] Undefined property: stdClass::$nickname C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\AdminrcmdController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `user_lists` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `user_lists` WHERE ( Wechatid='' )  [ RunTime:0.0003s ]
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+
+[ 2016-12-25T07:15:15+08:00 ] 101.226.35.225 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000619s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000671s ]
+
+[ 2016-12-25T07:38:00+08:00 ] 119.147.207.158 /?signature%25253Dd6677376591142206cd3232f40aae87db92afec9%252526timestamp%25253D1482555930%252526nonce%25253D2065402058%252526openid%25253DonvI2wQyMkuLc1rfBsTyvTRe76MA
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000342s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000638s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000607s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000662s ]
+
+[ 2016-12-25T07:38:17+08:00 ] 101.226.33.240 /?signature%25253Dd6677376591142206cd3232f40aae87db92afec9%252526timestamp%25253D1482555930%252526nonce%25253D2065402058%252526openid%25253DonvI2wQyMkuLc1rfBsTyvTRe76MA
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000635s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000604s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000662s ]
+
+[ 2016-12-25T07:38:59+08:00 ] 123.151.42.61 http://www.baidu.com/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000652s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000741s ]
+
+[ 2016-12-25T07:46:01+08:00 ] 119.147.21.64 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000382s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000637s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000634s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000682s ]
+
+[ 2016-12-25T08:36:19+08:00 ] 94.102.48.194 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000345s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000710s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000764s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001104s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001196s ]
+
+[ 2016-12-25T10:00:08+08:00 ] 101.226.33.224 /home/usersrcmd/index?code%25253D011PfESy1l4ZOe0OIRVy1tWlSy1PfESH%252526state%25253DSTATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000631s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000579s ]
+NOTIC: [2048] Non-static method Common\Library\WeChat::getUsers() should not be called statically, assuming $this from incompatible context C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 24 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 307 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 314 行.
+NOTIC: [8] Undefined property: stdClass::$access_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 317 行.
+NOTIC: [8] Undefined property: stdClass::$refresh_token C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 318 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 319 行.
+NOTIC: [8] Use of undefined constant CURLOPT_GET - assumed 'CURLOPT_GET' C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_setopt() expects parameter 2 to be long, string given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 324 行.
+NOTIC: [2] curl_error() expects exactly 1 parameter, 0 given C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Common\Library\WeChat.class.php 第 330 行.
+NOTIC: [8] Undefined property: stdClass::$openid C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 25 行.
+NOTIC: [8] Undefined property: stdClass::$nickname C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 26 行.
+SQL: SHOW COLUMNS FROM `user_lists` [ RunTime:0.0024s ]
+SQL: SELECT * FROM `user_lists` WHERE ( Wechatid='' )  [ RunTime:0.0003s ]
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+ERR: 1048:Column 'Name' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_lists` (`Name`,`Wechatid`) VALUES (NULL,NULL)
+
+[ 2016-12-25T10:08:56+08:00 ] 180.153.160.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000342s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000570s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000584s ]
+
+[ 2016-12-25T10:20:43+08:00 ] 61.151.226.199 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000545s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000597s ]
+
+[ 2016-12-25T11:09:10+08:00 ] 101.226.64.174 /index.php/home/usersrcmd/praisecheck
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000346s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000586s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\UsersrcmdController.class.php 第 303 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000821s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000880s ]
+
+[ 2016-12-25T11:21:01+08:00 ] 180.163.1.46 /?signature%2525253Dd6677376591142206cd3232f40aae87db92afec9%25252526timestamp%2525253D1482555930%25252526nonce%2525253D2065402058%25252526openid%2525253DonvI2wQyMkuLc1rfBsTyvTRe76MA
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000642s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000641s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000694s ]
+
+[ 2016-12-25T11:21:56+08:00 ] 101.226.35.225 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000369s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000585s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000606s ]
+
+[ 2016-12-25T11:30:53+08:00 ] 183.57.53.222 /index.php/home/usershome/my_collection.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000574s ]
+SQL: SHOW COLUMNS FROM `admin_recommend_collection` [ RunTime:0.0018s ]
+SQL: SHOW COLUMNS FROM `admin_recommend_lists` [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `user_recommend_lists` [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `user_recommend_collection` [ RunTime:0.0015s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `mediaId` FROM `admin_recommend_collection` WHERE ( Uid= ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `mediaId` FROM `admin_recommend_collection` WHERE ( Uid= ) 
+
+[ 2016-12-25T11:39:16+08:00 ] 66.240.192.138 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000584s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000621s ]
+
+[ 2016-12-25T13:10:18+08:00 ] 121.199.70.200 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000410s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000593s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000572s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000624s ]
+
+[ 2016-12-25T14:49:55+08:00 ] 123.151.43.65 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000534s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000588s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000582s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000634s ]
+
+[ 2016-12-25T16:04:16+08:00 ] 27.199.130.54 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000347s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000646s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000720s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000646s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000702s ]
+
+[ 2016-12-25T18:09:22+08:00 ] 211.147.113.28 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000538s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000593s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000536s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000585s ]
+
+[ 2016-12-25T20:03:30+08:00 ] 182.254.86.153 /?signature=c3f46111e506316782e017b82a0345511e115597&timestamp=1482667410&nonce=1359049272&openid=onvI2wU-vAU99oPC5mWwkanCOQa4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000598s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000690s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000766s ]
+
+[ 2016-12-25T20:03:30+08:00 ] 182.254.86.148 /?signature=87602c3ece4d02764408263b241edfd4d16b60a6&timestamp=1482667411&nonce=2030683305&openid=onvI2wU-vAU99oPC5mWwkanCOQa4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000350s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000532s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000826s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000885s ]
+
+[ 2016-12-25T20:04:07+08:00 ] 182.254.86.143 /?signature=e071754db2108e5dd9278566ad1a12018423c68e&timestamp=1482667447&nonce=723274988&openid=onvI2wU-vAU99oPC5mWwkanCOQa4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000418s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000655s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000738s ]
+
+[ 2016-12-25T21:27:35+08:00 ] 101.226.35.225 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000582s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000592s ]
+
+[ 2016-12-25T21:43:16+08:00 ] 43.241.230.43 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000375s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000643s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000546s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000597s ]
+
+[ 2016-12-25T21:43:16+08:00 ] 43.241.230.43 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000386s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000557s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000511s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000562s ]
+
+[ 2016-12-25T21:43:16+08:00 ] 43.241.230.43 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000583s ]
+
+[ 2016-12-25T21:43:17+08:00 ] 43.241.230.43 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000353s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000478s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000535s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000531s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000582s ]
+
+[ 2016-12-25T21:43:17+08:00 ] 103.37.145.166 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000384s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000485s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000542s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000604s ]
+
+[ 2016-12-25T21:43:17+08:00 ] 103.37.145.166 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000346s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000486s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000540s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000523s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2016-12-25T22:42:12+08:00 ] 116.1.91.179 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000519s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000530s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000579s ]
+
+[ 2016-12-25T22:42:15+08:00 ] 116.1.91.179 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000919s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001375s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001396s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001535s ]
+
+[ 2016-12-25T23:03:40+08:00 ] 114.215.239.201 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000523s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2016-12-25T23:19:16+08:00 ] 176.106.150.199 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000372s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000592s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000587s ]
+
+[ 2016-12-25T23:49:23+08:00 ] 177.202.153.77 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000342s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000597s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000519s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000567s ]
+
+[ 2016-12-25T23:56:40+08:00 ] 180.153.214.182 /?signature%3Dc3f46111e506316782e017b82a0345511e115597%26timestamp%3D1482667410%26nonce%3D1359049272%26openid%3DonvI2wU-vAU99oPC5mWwkanCOQa4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000612s ]
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 16 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Trying to get property of non-object C:\Users\Administrator\Desktop\phpStudy\WWW\Application\Home\Controller\IndexController.class.php 第 18 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000559s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000613s ]
+
