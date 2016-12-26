@@ -1,15 +1,15 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title>个人收藏</title>
+	<title>个人推荐</title>
 	<!-- 解决IE8兼容性 -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- 设置编码为utf-8 -->
 	<meta charset="utf-8" />
 	<!-- 自适应设备 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/lib/weui.min.css">
-	<link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/css/jquery-weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/home/lib/weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/home/css/jquery-weui.min.css">
 
 	<style>
 		html,body{
@@ -19,7 +19,6 @@
 			width: 25%;
 			float: left;
 			height: auto;
-			position:absolute;
 		}
 		.media_hd img{
 			width: 100%;
@@ -34,9 +33,17 @@
      	.weui_panel_hd{
      		float: right;
      	}
+     	.weui_panel_hd p{
+			position: relative;
+			left: 50%;
+     	}
     	.weui_media_desc{
     		font-family: 'STXinwei'; 
     		font-size: 14px;
+    		
+    	}
+    	.title{
+    		font-family: 幼圆;
     	}
 	</style>
 </head>
@@ -61,9 +68,9 @@
 							   </p>
 						   </div>
 						   <div class="weui_panel_hd">
-							   <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default"></a>
-							   &nbsp;&nbsp;
-							   <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">喜欢<?php echo ($list["parisecount"]); ?></a>
+							 
+							   <!-- <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">喜欢<?php echo ($list["parisecount"]); ?></a> -->
+							   <p><img src="/Public/home/images/zanqian.png"><?php echo ($list["parisecount"]); ?></p>
 						   </div>
 					   </div>
 				   </div><?php endforeach; endif; else: echo "" ;endif; ?>
@@ -73,22 +80,22 @@
 
 		  <!-- 底部导航栏 -->
 		   <div class="weui_tabbar">
-	    <a href="<?php echo U('home/adminrcmd/media_index');?>" class="weui_tabbar_item weui_bar_item_on">
+	    <a href="<?php echo U('home/adminrcmd/media_index');?>" class="weui_tabbar_item ">
 	      <div class="weui_tabbar_icon">
-	        <img src="/Wechat_media/Public/home/images/home.jpg" alt="">
+	        <img src="/Public/home/images/home.jpg" alt="">
 	      </div>
-	      <p class="weui_tabbar_label">影视推荐</p>
+	      <p class="weui_tabbar_label">官方推荐</p>
 	    </a>
 	    <a href="<?php echo U('home/usersrcmd/user_recommend_index');?>" class="weui_tabbar_item">
 	      <div class="weui_tabbar_icon">
-	        <img src="/Wechat_media/Public/home/images/yonghutuijian.png" alt="">
+	        <img src="/Public/home/images/yonghutuijian.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">用户推荐</p>
 	    </a>
 	    
-	    <a href="my_home.html" class="weui_tabbar_item">
+	    <a href="my_home.html" class="weui_tabbar_item  weui_bar_item_on">
 	      <div class="weui_tabbar_icon">
-	        <img src="/Wechat_media/Public/home/images/gerenzhongxin1.png" alt="">
+	        <img src="/Public/home/images/gerenzhongxin1.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">个人中心</p>
 	    </a>
@@ -96,7 +103,7 @@
 	</div>
 
 </body>
-<script type="text/javascript" src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/jquery-weui.min.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/swiper.js"></script>
+<script type="text/javascript" src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Public/home/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/Public/home/js/swiper.js"></script>
 </html>

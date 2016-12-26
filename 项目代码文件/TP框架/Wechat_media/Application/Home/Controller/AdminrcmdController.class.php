@@ -8,6 +8,7 @@
 namespace Home\Controller;
 use Think\Controller;
 use Think\Model;
+use Common\Library\WeChat;
 
 class AdminrcmdController extends Controller{
 
@@ -16,6 +17,26 @@ class AdminrcmdController extends Controller{
     protected $admin_content_commend;//评论表
     protected $music_recommend_lists;//音乐推荐表
     public $_num = 10;//页面显示数量
+    protected $user_lists;
+
+    public function index(){
+        $user = WeChat::getUsers();
+        $wechatid = $user->openid;
+        $data['Name'] = $user->nickname;
+        $this->user_lists = M('user_lists');
+        if ($result = $this->user_lists->where("Wechatid='$wechatid'")->select()){
+            $this->user_lists->where("Wechatid='$wechatid'")->save($data);
+            $user_id = (int)$result['0']['user_id'];
+        }else{
+            $data["Wechatid"] = $wechatid;
+            $user_id = (int)$this->user_lists->add($data);
+        }
+        session('userid',$user_id);
+        session('name',$data['Name']);
+        session('userimg',$user->headimgurl);
+        header("location:media_index");
+    }
+
  /*
   * 显示影视推荐首页
   * */
@@ -27,7 +48,7 @@ class AdminrcmdController extends Controller{
 /*
  * 显示影视推荐列表页
  */
-       public function media_lists(){
+    public function media_lists(){
         $type_id = I('type_id');
         $this->admin_recommend_lists = M('admin_recommend_lists');
         $result = $this->admin_recommend_lists->
@@ -43,13 +64,13 @@ class AdminrcmdController extends Controller{
         $this->display();
 
     }
+
 /*
  * 加载内容页面
  */
     public function media_content(){
         //获取内容id
-//        $ar_id = I('ar_id');
-        $ar_id = 3;
+       $ar_id = I('ar_id');
         //链接数据表
         $this->admin_recommend_lists = M('admin_recommend_lists');
         $this->media_type = M('media_type');
@@ -97,8 +118,8 @@ class AdminrcmdController extends Controller{
         $data['MediaID'] = I('mediaid');
         $data['content'] = I('content');
         $data['time'] = time();
-        $data['userName'] = 'yonghu';
-        $data['userImg'] = 'http://img5.duitang.com/uploads/item/201602/11/20160211215958_P4MtQ.thumb.700_0.jpeg';
+        $data['userName'] = session('name');
+        $data['userImg'] = session('userimg');
         $this->admin_content_comment = M('admin_content_comment');
         $result = $this->admin_content_comment->add($data);
         if ($result){
@@ -143,8 +164,7 @@ class AdminrcmdController extends Controller{
         $p = I('p');
         $type_id = I('type_id');
         $this->admin_recommend_lists= M('admin_recommend_lists'); // 实例化User对象
-        $num = 5;//每次加载的的条数
-        $list = $this->admin_recommend_lists->where("type_id=$type_id")->limit($p*$num,$num)->select();
+        $list = $this->admin_recommend_lists->where("type_id=$type_id")->order('createTime desc')->limit($p*$this->_num,$this->_num)->select();
         echo json_encode($list);
 
     }
@@ -200,5 +220,69 @@ class AdminrcmdController extends Controller{
         //显示视图
         $this->display();
     }
-
+    /*
+     * 收藏官方推荐
+     */
+    public function admin_collection(){
+        //1.获取用户id
+        $userId= I('session.userid');
+        //2.根据用户id将其收藏的信息放入收藏表
+            //2.1 获取media_id
+        $mediaId=I('mediaId');
+            //2.2 实例化模型
+        $this->admin_content_colletcion = M('admin_recommend_collection');
+            //2.3.将信息插入数据表
+        $data['Uid']=$userId;
+        $data['MediaId'] = $mediaId;
+        $result = $this->admin_content_colletcion->add($data);
+        //3.返回到页面
+        if($result){
+            echo json_encode(1);
+        }
+        else{
+            echo json_encode(2);
+        }
+    }
+    /*
+     * 取消收藏官方推荐
+     */
+    public function admin_collection_c(){
+        //1.获取用户id
+        $userId= I('session.userid');
+        $userId =1;
+        //2.根据用户id将其收藏的信息放入收藏表
+        //2.1 获取media_id
+        $mediaId=I('mediaId');
+        //2.2 实例化模型
+        $this->admin_content_colletcion = M('admin_recommend_collection');
+        //2.3.将数据表中的数据删除
+        $data['Uid']=$userId;
+        $data['MediaId'] = $mediaId;
+        $result = $this->admin_content_colletcion->where($data)->delete();
+        //3.返回到页面
+        if($result){
+            echo json_encode(1);
+        }
+        else{
+            echo json_encode(2);
+        }
+    }
+    /*
+     * 保持收藏状态
+     */
+    public function keep(){
+        //1.当前数据
+        $userId= I('session.userid');
+        //2.根据用户id将其收藏的信息放入收藏表
+        //2.1 获取media_id
+        $mediaId=I('mediaId');
+        //实例化模型
+        $this->admin_content_colletcion = M('admin_recommend_collection');
+        $count = $this->admin_content_colletcion->where("MediaId=$mediaId and Uid=$userId")->count();
+        if($count){
+            echo json_encode(1);
+        }else{
+            echo json_encode(2);
+        }
+    }
 }

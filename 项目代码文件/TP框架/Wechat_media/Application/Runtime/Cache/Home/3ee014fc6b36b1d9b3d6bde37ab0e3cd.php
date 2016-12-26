@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>电影推荐列表</title>
+    <title><?php echo ($type); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/demos.css" type="text/css"/>
     <style>
         .media_hd{
             width: 25%;
@@ -17,6 +17,9 @@
         }
         .media_desc{
             float: right;
+        }
+         .weui_media_bd{
+            padding-left: 10px;
         }
     </style>
 </head>
@@ -44,8 +47,9 @@
                                 <p class="weui_media_desc">主演:<?php echo ($lists["actor"]); ?></p>
                                 <p class="weui_media_desc">导演:<?php echo ($lists["director"]); ?></p>
                                 <p class="weui_media_desc">上映时间:<?php echo ($lists["time"]); ?></p>
-                                <p class="weui_media_desc"><?php echo ($lists["reason"]); ?></p>
-                                <p class="media_desc">评分:<?php echo ($lists["score"]); ?></p>
+                                <p class="weui_media_desc">豆瓣评分:<?php echo ($lists["score"]); ?></p>
+                                <p class="weui_media_desc">推荐理由:<?php echo ($lists["reason"]); ?></p>
+                                
                             </div>
                         </a>
                     </div>
@@ -65,34 +69,34 @@
     <div class="weui_tabbar">
         <a href="<?php echo U('home/adminrcmd/media_index');?>" class="weui_tabbar_item weui_bar_item_on">
             <div class="weui_tabbar_icon">
-                <img src="/Wechat_media/Public/home/images/shouye.png" alt="">
+                <img src="/Public/home/images/shouye.png" alt="">
             </div>
             <p class="weui_tabbar_label">主页</p>
         </a>
         <a href="<?php echo U('home/adminrcmd/media_music');?>" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="/Wechat_media/Public/home/images/yingshiyinyue.png" alt="">
+                <img src="/Public/home/images/yingshiyinyue.png" alt="">
             </div>
             <p class="weui_tabbar_label">音乐</p>
         </a>
         <a href="<?php echo U('home/usershome/my_home');?>" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="/Wechat_media/Public/home/images/gerenzhongxin.png" alt="">
+                <img src="/Public/home/images/gerenzhongxin.png" alt="">
             </div>
             <p class="weui_tabbar_label">个人中心</p>
         </a>
     </div>
 </div>
-<script src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script src="/Wechat_media/Public/home/lib/fastclick.js"></script>
-<script src="/Wechat_media/Public/home/js/jquery-weui.js"></script>
+<script src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script src="/Public/home/lib/fastclick.js"></script>
+<script src="/Public/home/js/jquery-weui.js"></script>
 <script>
     $(function() {
         FastClick.attach(document.body);
     });
 </script>
 <script>
-var p = 0;
+var p = 1;
 var type_id = "<?php echo ($type_id); ?>";
     $(".weui_tab_bd").infinite();
     var loading = false;
@@ -121,8 +125,8 @@ var type_id = "<?php echo ($type_id); ?>";
                         '<p class="weui_media_desc">主演:'+data[i].actor+'</p>'+
                         '<p class="weui_media_desc">导演:'+data[i].director+'</p>'+
                         '<p class="weui_media_desc">上映时间:'+data[i].time+'</p>'+
-                        '<p class="weui_media_desc">'+data[i].reason+'</p>'+
-                        '<p class="media_desc">评分:'+data[i].score+'</p>'+
+                        '<p class="weui_media_desc">豆瓣评分:'+data[i].score+'</p>'+
+                        '<p class="weui_media_desc">推荐理由:'+data[i].reason+'</p>'+
                         '</div>'+
                         '</a>'+
                         '</div>'+
@@ -156,8 +160,8 @@ var type_id = "<?php echo ($type_id); ?>";
                         '<p class="weui_media_desc">主演:'+data[0].actor+'</p>'+
                         '<p class="weui_media_desc">导演:'+data[0].director+'</p>'+
                         '<p class="weui_media_desc">上映时间:'+data[0].time+'</p>'+
-                        '<p class="weui_media_desc">'+data[0].reason+'</p>'+
-                        '<p class="media_desc">评分:'+data[0].score+'</p>'+
+                        '<p class="weui_media_desc">豆瓣评分:'+data[0].score+'</p>'+
+                       '<p class="weui_media_desc">推荐理由:'+data[0].reason+'</p>'+
                         '</div>'+
                         '</a>'+
                         '</div>'+
@@ -175,14 +179,15 @@ var type_id = "<?php echo ($type_id); ?>";
                         '<p class="weui_media_desc">主演:'+data[i].actor+'</p>'+
                         '<p class="weui_media_desc">导演:'+data[i].director+'</p>'+
                         '<p class="weui_media_desc">上映时间:'+data[i].time+'</p>'+
-                        '<p class="weui_media_desc">'+data[i].reason+'</p>'+
-                        '<p class="media_desc">评分:'+data[i].score+'</p>'+
+                       '<p class="weui_media_desc">豆瓣评分:'+data[0].score+'</p>'+
+                       '<p class="weui_media_desc">推荐理由:'+data[0].reason+'</p>'+
                         '</div>'+
                         '</a>'+
                         '</div>'+
                         '</div>');
             }
             $(".weui_tab_bd").pullToRefreshDone();
+            p=1;
         });
     });
 

@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css">
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css">
+    <link rel="stylesheet" href="/Public/home/lib/weui.min.css" type="text/css">
+    <link rel="stylesheet" href="/Public/home/css/jquery-weui.min.css" type="text/css">
     <style>
         .weui_media_appmsg_thumb{
-            height:90%;
+            height:10%;
             width:50%;
         }
 
@@ -17,10 +17,7 @@
         .weui_tab_bd{
             width:100%;
             height:100%;
-            background-image:url("/Wechat_media/Public/home/images/beijing1.jpg");
-            background-repeat:repeat-y;
-            background-size: 120% 50%;
-
+            back
 
         }
         html,body{
@@ -35,41 +32,45 @@
             height:100%;
             line-height:100%;
             overflow:hidden;
-            text-align:center;
+            text-align:left;
+            width:20%;
         }
         .weui_cells{
-            height:50%;
-            background-image:linear-gradient(75deg,#DCDCDC,#DCDCDC);
+            position:absolute;
+            height:60%;
+            width:100%;
+            text-align: left;
+        }
+        .weui_cell{
+            filter:alpha(opacity=50);
+            -moz-opacity:0.5;
+            -khtml-opacity: 0.5;
+            opacity: 1;
+        }
+        .weui_cell:active{
+        background:black;
         }
         .weui_tab_bd{
             height: 100%;
         }
-        .weui_cell{
-            height:25%;
-        }
-        .weui_cell_bd{
-            width: 25%;
-            float: left;
-            height: auto;
-        }
         .weui_cell_bd img{
-            width:50%;
+            width:80%;
             height:50%;
-            padding-right: 0;
+         text-align: left;
         }
         .conment_hd{
-            width: 75%;
-            float: right;
+            width: 86%;
         }
         .title{
-            padding-left: 24%;
-            font-family:新宋体;
-            color: #C13E3E;
+            width:40%;
+            padding-left: 5%;
+            color:black;
+            font-weight:lighter ;
 
         }
         .weui_panal_la{
-
-            height:100%;
+            position:absolute;
+            height:20%;
             width:100%;
             overflow:hidden;
             text-align:center;
@@ -78,21 +79,66 @@
         }
         .weui_panal_la img{
             border-radius:50%;
-            height:100%;
-            width:25%;
+            height:120%;
+            width:40%;
         }
         .weui_word{
             text-align:center;
-            color:lightgreen;
-            font-family: 新宋体;
+             height:10%;
+            color:black;
+            font-family:新宋体;
+            font-weight: lighter;
         }
         .weui_panal{
             width:100%;
+            height:45%;
         }
-        .weui_you{
-            height:100%;
+        .bg {
+            background: url('<?php echo (session('userimg')); ?>');
+            background-size: 120% 120%;
+            height:90%;
+            text-align: center;
+            line-height: 50%;
+        }
+        .bgblur {
+            float: left;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size:cover;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(4px);
+            -o-filter: blur(4px);
+            -ms-filter: blur(4px);
+            filter: blur(4px);
         }
 
+          .weui_you{
+            height:2%;
+            padding-top: 0%;
+        }
+        .weui_word{
+            height:10%;
+        }
+        .weui_btn img{
+            height:50%;
+        }
+        .weui_cell_primary{
+            width:20px;
+        }
+        .hx{
+            height:10px;
+            width:100%;
+            background-color: #DCDCDC;
+        }
+        .hx1{
+            height:300px;
+            width:100%;
+            background-color: #DCDCDC;
+        }
+        .weui_cells_access{
+            border-top:10px solid #DCDCDC;
+        }
     </style>
 </head>
 <body>
@@ -101,54 +147,80 @@
         <!--个人头像和昵称-->
         <div class="weui_panal">
             <p>
+            <div class="bg  bgblur"></div>
             <div class="weui_panal_la">
-                <img class="weui_media_appmsg_thumb" src="/Wechat_media/Public/home/images/touxiang.jpg">
+                <img class="weui_media_appmsg_thumb" src="<?php echo (session('userimg')); ?>">
             </div>
-            <div class="weui_you"><h2><p class="weui_word">你的昵称</p></h2></div>
+            <div class="weui_you"><h2><p class="weui_word"><?php echo (session('name')); ?></p></h2></div>
             </p>
         </div>
         <!--第一个选项卡-->
         <div class="weui_cells weui_cells_access" >
-            <a class="weui_cell" href="my_recommend.html">
+            <a class="weui_cell" href="<?php echo U('home/adminrcmd/media_index');?>">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <img class="weui_media_appmsg_thumb" src="/Wechat_media/Public/home/images/tuijian1.png" alt="无图">
+                    <img class="weui_media_appmsg_thumb" src="/Public/home/images/movie_home.png" alt="无图">
                 </div>
                 <div  class="conment_hd">
-                    <h3 class="title">我的推荐</h3>
+                    <h4 class="title">影视推荐</h4>
                 </div>
                 <div class="weui_cell_ft">
                 </div>
             </a>
-            <hr>
+           
             <!--第二个选项卡-->
+            <a class="weui_cell" href="<?php echo U('home/usersrcmd/user_recommend_index');?>">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <img class="weui_media_appmsg_thumb" src="/Public/home/images/recommend_home.png" alt="无图">
+                </div>
+                <div  class="conment_hd">
+                    <h4 class="title">用户推荐</h4>
+                </div>
+                <div class="weui_cell_ft">
+                </div>
+            </a>
+            <div class="hx"></div>
+            <!--第三个选项卡-->
+                  <a class="weui_cell" href="my_recommend.html">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <img class="weui_media_appmsg_thumb" src="/Public/home/images/my_recommend.png" alt="无图">
+                </div>
+                <div  class="conment_hd">
+                    <h4 class="title">我的推荐</h4>
+                </div>
+                <div class="weui_cell_ft">
+                </div>
+            </a>
+          
+            <!--第四个选项卡-->
             <a class="weui_cell" href="my_collection.html">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <img class="weui_media_appmsg_thumb" src="/Wechat_media/Public/home/images/book.png" alt="无图">
+                    <img class="weui_media_appmsg_thumb" src="/Public/home/images/collection_home.png" alt="无图">
                 </div>
                 <div  class="conment_hd">
-                    <h3 class="title">我的收藏</h3>
+                    <h4 class="title">我的收藏</h4>
                 </div>
                 <div class="weui_cell_ft">
                 </div>
             </a>
-            <hr>
-            <!--第三个选项卡-->
+            <div class="hx"></div>
+            <!--第五个选项卡-->
             <a class="weui_cell" href="about_us.html">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <img class="weui_media_appmsg_thumb" src="/Wechat_media/Public/home/images/women1.png" alt="无图">
+                    <img class="weui_media_appmsg_thumb" src="/Public/home/images/about_home.png" alt="无图">
                 </div>
                 <div  class="conment_hd">
-                    <h3 class="title">关于微信</h3>
+                    <h4 class="title">关于我们</h4>
                 </div>
                 <div class="weui_cell_ft">
                 </div>
             </a>
+            <div class="hx1"></div>
         </div>
     </div>
 </div>
 </div>
 </body>
-<script type="text/javascript" src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/jquery-weui.min.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/swiper.js" charset='utf-8'></script>
+<script type="text/javascript" src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Public/home/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/Public/home/js/swiper.js" charset='utf-8'></script>
 </html>

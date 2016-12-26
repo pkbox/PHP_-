@@ -18,6 +18,9 @@
         .media_desc{
             float: right;
         }
+         .weui_media_bd{
+            padding-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -45,8 +48,9 @@
                                 <p class="weui_media_desc">主演:{$lists.actor}</p>
                                 <p class="weui_media_desc">导演:{$lists.director}</p>
                                 <p class="weui_media_desc">上映时间:{$lists.time}</p>
-                                <p class="weui_media_desc">{$lists.reason}</p>
-                                <p class="media_desc">评分:{$lists.score}</p>
+                                <p class="weui_media_desc">豆瓣评分:{$lists.score}</p>
+                                <p class="weui_media_desc">推荐理由:{$lists.reason}</p>
+                                
                             </div>
                         </a>
                     </div>
@@ -94,7 +98,7 @@
     });
 </script>
 <script>
-var p = 0;
+var p = 1;
 var type_id = "{$type_id}";
     $(".weui_tab_bd").infinite();
     var loading = false;
@@ -123,8 +127,8 @@ var type_id = "{$type_id}";
                         '<p class="weui_media_desc">主演:'+data[i].actor+'</p>'+
                         '<p class="weui_media_desc">导演:'+data[i].director+'</p>'+
                         '<p class="weui_media_desc">上映时间:'+data[i].time+'</p>'+
-                        '<p class="weui_media_desc">'+data[i].reason+'</p>'+
-                        '<p class="media_desc">评分:'+data[i].score+'</p>'+
+                        '<p class="weui_media_desc">豆瓣评分:'+data[i].score+'</p>'+
+                        '<p class="weui_media_desc">推荐理由:'+data[i].reason+'</p>'+
                         '</div>'+
                         '</a>'+
                         '</div>'+
@@ -158,8 +162,8 @@ var type_id = "{$type_id}";
                         '<p class="weui_media_desc">主演:'+data[0].actor+'</p>'+
                         '<p class="weui_media_desc">导演:'+data[0].director+'</p>'+
                         '<p class="weui_media_desc">上映时间:'+data[0].time+'</p>'+
-                        '<p class="weui_media_desc">'+data[0].reason+'</p>'+
-                        '<p class="media_desc">评分:'+data[0].score+'</p>'+
+                        '<p class="weui_media_desc">豆瓣评分:'+data[0].score+'</p>'+
+                       '<p class="weui_media_desc">推荐理由:'+data[0].reason+'</p>'+
                         '</div>'+
                         '</a>'+
                         '</div>'+
@@ -177,14 +181,15 @@ var type_id = "{$type_id}";
                         '<p class="weui_media_desc">主演:'+data[i].actor+'</p>'+
                         '<p class="weui_media_desc">导演:'+data[i].director+'</p>'+
                         '<p class="weui_media_desc">上映时间:'+data[i].time+'</p>'+
-                        '<p class="weui_media_desc">'+data[i].reason+'</p>'+
-                        '<p class="media_desc">评分:'+data[i].score+'</p>'+
+                       '<p class="weui_media_desc">豆瓣评分:'+data[0].score+'</p>'+
+                       '<p class="weui_media_desc">推荐理由:'+data[0].reason+'</p>'+
                         '</div>'+
                         '</a>'+
                         '</div>'+
                         '</div>');
             }
             $(".weui_tab_bd").pullToRefreshDone();
+            p=1;
         });
     });
 

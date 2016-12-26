@@ -19,7 +19,6 @@
 			width: 25%;
 			float: left;
 			height: auto;
-			position: ;
 		}
 		.media_hd img{
 			width: 100%;
@@ -33,14 +32,26 @@
 		}
      	.weui_panel_hd{
      		float: right;
+     		padding: 0px 10px 10px 0px;
      	}
-    	.weui_media_desc{
+    	.media_desc{
     		font-family: 'STXinwei'; 
     		font-size: 14px;
+    		color:#999;
+    		line-height:1.2;
+    		overflow:hidden;
+    		text-overflow:ellipsis;
+    		display:-webkit-box;
+    		-webkit-box-orient:vertical;
+    		-webkit-line-clamp:4;
     	}
 		.color{
-			background: #ee8a87;
+			background: #c4c4c4;
 		}
+		.title{
+			 font-family: 幼圆;
+		}
+		 
 	</style>
 </head>
 
@@ -69,17 +80,18 @@
 			   <volist name="hot" id="list">
 					  <div class="weui_panel weui_panel_access">
 						  <div class="weui_panel_bd">
-
+							  <a href="{:U('home/usersrcmd/user_recommend_content/ur_id')}/{$list.ur_id}" class="weui_media_box weui_media_appmsg">
 							  <div class="media_hd">
 								<img class="weui_media_appmsg_thumb" src="{$list.thumb}" alt="无图">
 							  </div>
 							  <div  class="conment_hd">
-								<h3 class="title"> &nbsp;&nbsp;&nbsp;&nbsp;{$list.title}</h3>
+								<h3 class="title"> &nbsp;{$list.title}</h3>
 								<p class="tuijianren">推荐人： {$list.name}</p>
-								<p class="weui_media_desc">
+								<p class="media_desc">
 									推荐理由：{$list.reason}
 								</p>
 							  </div>
+							  </a>
 							<div class="weui_panel_hd">
 								<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default collection"><p>收藏</p><input hidden class="id" value="{$list.ur_id}"></div>
 								&nbsp;&nbsp;
@@ -108,17 +120,18 @@
 				<volist name="result" id="list">
 					<div class="weui_panel weui_panel_access">
 						<div class="weui_panel_bd">
-
+							<a href="{:U('home/usersrcmd/user_recommend_content/ur_id')}/{$list.ur_id}" class="weui_media_box weui_media_appmsg">
 							<div class="media_hd">
 								<img class="weui_media_appmsg_thumb" src="{$list.thumb}" alt="无图">
 							</div>
 							<div  class="conment_hd">
-								<h3 class="title"> &nbsp;&nbsp;&nbsp;&nbsp;{$list.title}</h3>
+								<h3 class="title"> &nbsp;&nbsp;{$list.title}</h3>
 								<p class="tuijianren">推荐人： {$list.name}</p>
-								<p class="weui_media_desc">
+								<p class="media_desc">
 									推荐理由：{$list.reason}
 								</p>
 							</div>
+							</a>
 							<div class="weui_panel_hd">
 								<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default collection"><p>收藏</p><input hidden class="id" value="{$list.ur_id}"></div>
 								&nbsp;&nbsp;
@@ -140,7 +153,7 @@
 		   <div class="weui_tabbar">
 	    <a href="user_recommend_index.html" class="weui_tabbar_item weui_bar_item_on">
 	      <div class="weui_tabbar_icon">
-	        <img src="__PUBLIC__/home/images/home.png" alt="">
+	        <img src="__PUBLIC__/home/images/shouye2.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">主页</p>
 	    </a>
@@ -158,7 +171,7 @@
 	    </a>
 	    <a href="{:U('home/usershome/my_home')}" class="weui_tabbar_item">
 	      <div class="weui_tabbar_icon">
-	        <img src="__PUBLIC__/home/images/gerenzhongxin10.png" alt="">
+	        <img src="__PUBLIC__/home/images/gerenzhongxin.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">个人中心</p>
 	    </a>
@@ -176,25 +189,28 @@
 	var hotP = 0;
 	var timeP = 0;
 <!--加载数据函数-->
+	var src="{:U('home/usersrcmd/user_recommend_content/ur_id')}/{$list.ur_id}";
 function append(data,cla) {
 	for(i=0;i<data.length;i++) {
 		$(cla).append(
 				'<div class="weui_panel weui_panel_access">' +
 				'<div class="weui_panel_bd">' +
+				'<a href="'+src+'" class="weui_media_box weui_media_appmsg">'+
 				'<div class="media_hd">' +
 				'<img class="weui_media_appmsg_thumb" src=" ' + data[i].thumb + '" alt="无图">' +
 				'</div>' +
 				'<div  class="conment_hd">' +
-				'<h3 class="title"> &nbsp;&nbsp;&nbsp;&nbsp;' + data[i].title + '</h3>' +
+				'<h3 class="title"> &nbsp;&nbsp;' + data[i].title + '</h3>' +
 				'<p class="tuijianren">推荐人：' + data[i].name + '</p>' +
-				'<p class="weui_media_desc">' +
+				'<p class="media_desc">' +
 				'推荐理由：' + data[i].reason +
 				'</p>' +
 				'</div>' +
+				'</a>'+
 				'<div class="weui_panel_hd">' +
 				'<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default collection"><p>收藏</p><input hidden class="id" value="'+data[i].ur_id+'"></div>' +
 				'&nbsp;&nbsp;' +
-				'<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default praise"><p>喜欢' + data[i].parisecount + '</p><input hidden class="id" value="'+data[0].ur_id+'" /></div>' +							'</div>' +
+				'<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default praise"><p>喜欢' + data[i].parisecount + '</p><input hidden class="id" value="'+data[i].ur_id+'" /></div>' +							'</div>' +
 				'</div>' +
 				'</div>');
 	}
@@ -208,6 +224,7 @@ function append(data,cla) {
 					var id = $(this).val();
 					if (id == value.mediaid){
 						$(this).parent().addClass("color");
+						$(this).parent().children("p").text('已收藏');
 					}
 				});
 			})
@@ -238,6 +255,7 @@ function append(data,cla) {
 				var url="{:U('home/usersrcmd/collection')}";
 				$.post(url,{"mediaid":id});
 				$(this).addClass("color");
+				$(this).children("p").text('已收藏');
 			}
 		});
 	}
@@ -279,10 +297,10 @@ function append(data,cla) {
 			append(data,"#tab1 .content");
 			$(".weui_tab_bd #tab1").pullToRefreshDone();
 			hotP = 0;
-			collection();
-			praise();
 			collectioncheck();
 			praisecheck();
+			collection();
+			praise();
 
 		})
 	});
@@ -295,11 +313,11 @@ function append(data,cla) {
 			append(data,"#tab2 .content");
 			$(".weui_tab_bd #tab2").pullToRefreshDone();
 			timeP = 0;
-			collection();
-			praise();
+			
 			collectioncheck();
 			praisecheck();
-
+			collection();
+			praise();
 		})
 	});
 

@@ -19,18 +19,13 @@
             <li>分类：</li>
             <li style="width:100px; height:40px;">
                 <select name="cid" class="input" style="width:200px; line-height:17px;">
-                    <option value="0">请选择分类</option>
-                    <option value="1">科幻</option>
-                    <option value="2">悬疑</option>
-                    <option value="3">励志</option>
-                    <option value="4">动作</option>
-                    <option value="5">爱情</option>
-                    <option value="6">恐怖</option>
-                    <option value="7">剧情</option>
-                    <option value="8">喜剧</option>
+                    <option value="">请选择分类</option>
+                    <volist name="types" id="type">
+                        <option value="{$type.id}">{$type.type}</option>
+                    </volist>
                 </select>
             </li>
-            <li> <a class="button border-main icon-plus-square-o" style="margin-left:100px;" href="##"> 获取内容</a> </li>
+            <li> <a class="button border-main icon-plus-square-o" style="margin-left:100px;" href="javascript:void(0)"> 获取内容</a> </li>
             <form method="post" action="{:U('admin/movie/search')}" id="listform">
                 <li style="float:right">
                     <input type="text" placeholder="请输入搜索电影名称" name="title" class="input" style="width:250px; line-height:17px;display:inline-block" />
@@ -73,18 +68,6 @@
             }
         })
     }
-    //查看详情
-    function select() {
-        $(".button2").click(function(){
-            var url="{:U('admin/movie/detail')}";
-            var tr=$(this).parent().parent().parent();
-            var id = $.trim(tr.children("td").eq(0).text());
-            $.post(url,{"id":id},function (data){
-
-            })
-        })
-    }
-    select();
     //全选
     function checkall() {
         $("#checkall").click(function(){
@@ -142,8 +125,9 @@
      分类选择
      */
     $(".icon-plus-square-o").unbind().click(function(){
-        var option=$(".search").children('li').eq(1).children('select').children('option:selected').val();
-        //console.log(option);
+        var select =$(".search").children('li').eq(1).children("select");
+        var option=select.children('option:selected').val();
+        var type = select.children("option:selected").text();
         var url="{:U('admin/movie/obtain')}";
         $.post(url,{"option":option},function (data) {
             if(data=='1'){
@@ -180,7 +164,7 @@
                             '<td>'+data[i].director+'</td>'+
                             '<td>'+data[i].actor+'</td>'+
                             '<td>'+data[i].time+'</td>'+
-                            '<td>'+data[i].type_id+'</td>'+
+                            '<td>'+type+'</td>'+
                             '<td>'+
                             '<div class="button-group">'+
                             '<a class="button button1 border-main" href="'+"{:U('admin/movie/add/id')}/"+data[i].ar_id+'">'+'<span class="icon-edit"></span> 修改</a>'+
@@ -202,7 +186,6 @@
                 delet();
                 check();
                 checkall();
-                select();
             }
 
         });

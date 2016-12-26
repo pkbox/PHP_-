@@ -19,26 +19,21 @@
         <li>分类：</li>
         <li style="width:200px; height:40px;">
               <select name="cid" class="input" style="width:200px; line-height:17px;">
-                  <option value="0">请选择分类</option>
-                  <option value="1">科幻</option>
-                  <option value="2">悬疑</option>
-                  <option value="3">励志</option>
-                  <option value="4">动作</option>
-                  <option value="5">爱情</option>
-                  <option value="6">恐怖</option>
-                  <option value="7">剧情</option>
-                  <option value="8">喜剧</option>
+                  <option value="">请选择分类</option>
+                  <volist name="types" id="type">
+                      <option value="{$type.id}">{$type.type}</option>
+                  </volist>
               </select>
         </li>
         <li>
             <a class="button border-main icon-plus-square-o"  href="javascript:void(0)"> 获取内容</a>
         </li>
-          <form method="post" action="{:U('admin/movie/search')}" id="listform">
-        <li style="float:right">
-          <input type="text" placeholder="请输入搜索电影名称" name="title" class="input" style="width:250px; line-height:17px;display:inline-block" />
-          <button class="button border-main icon-search" type="submit"> 搜索</button>
-        </li>
-      </form>
+        <form method="post" action="{:U('admin/movie/search')}" id="listform">
+            <li style="float:right">
+                <input type="text" placeholder="请输入搜索电影名称" name="title" class="input" style="width:250px; line-height:17px;display:inline-block" />
+                <button class="button border-main icon-search" type="submit" > 搜索</button>
+            </li>
+        </form>
       </ul>
     </div>
     <table class="table table-hover text-center">
@@ -60,7 +55,19 @@
           <td>{$vo.director}</td>
           <td>{$vo.actor}</td>
           <td>{$vo.time}</td>
-          <td>{$vo.type_id}</td>
+          <td>
+              <switch name="vo.type_id" >
+                  <case value="1">科幻</case>
+                  <case value="2">悬疑</case>
+                  <case value="3">冒险</case>
+                  <case value="4">动作</case>
+                  <case value="5">爱情</case>
+                  <case value="6">恐怖</case>
+                  <case value="7">剧情</case>
+                  <case value="8">喜剧</case>
+                  <case value="9">动画</case>
+              </switch>
+          </td>
           <td>
               <div class="button-group">
                     <a class="button button1 border-main" href="{:U('admin/movie/add/id')}/{$vo.ar_id}"><span class="icon-edit"></span> 修改</a>
@@ -170,15 +177,16 @@ function DelSelect(){
     分类选择
      */
 $(".icon-plus-square-o").unbind().click(function(){
-       var option=$(".search").children('li').eq(1).children('select').children('option:selected').val();
-        //console.log(option);
+        var select =$(".search").children('li').eq(1).children("select");
+        var option=select.children('option:selected').val();
+        var type = select.children("option:selected").text();
         var url="{:U('admin/movie/obtain')}";
         $.post(url,{"option":option},function (data) {
             if(data=='1'){
                 window.location.href="{:U('admin/movie/error')}";
             }else{
                 data=jQuery.parseJSON(data);
-                //console.log(data);
+                console.log(data);
                 /*
                  标题
                  */
@@ -208,7 +216,7 @@ $(".icon-plus-square-o").unbind().click(function(){
                             '<td>'+data[i].director+'</td>'+
                             '<td>'+data[i].actor+'</td>'+
                             '<td>'+data[i].time+'</td>'+
-                            '<td>'+data[i].type_id+'</td>'+
+                            '<td>'+type+'</td>'+
                             '<td>'+
                             '<div class="button-group">'+
                             '<a class="button button1 border-main" href="'+"{:U('admin/movie/add/id')}/"+data[i].ar_id+'">'+'<span class="icon-edit"></span> 修改</a>'+

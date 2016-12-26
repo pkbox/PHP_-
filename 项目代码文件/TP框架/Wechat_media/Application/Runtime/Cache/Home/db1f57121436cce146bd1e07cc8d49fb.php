@@ -3,10 +3,10 @@
     <meta charset="UTF-8">
     <title>电影金曲</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/dist/css/bootstrap-icon.css">
+    <link rel="stylesheet" href="/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/demos.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/dist/css/bootstrap-icon.css">
     <style>
         .left{
             width: 30%;
@@ -150,15 +150,15 @@
             <?php if(is_array($musicrcmd)): $i = 0; $__LIST__ = $musicrcmd;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="weui_cell">
                     <div class="weui_cells_bd ">
                         <!--<?php  var_dump($vo); ?>-->
-                        <?php echo ($vo["musicname"]); ?> - <?php echo ($vo["singer"]); ?><input type="hidden" class="<?php echo ($vo["frommedia"]); ?>" value="<?php echo ($vo["musicaddress"]); ?>"  name="<?php echo ($vo["music_id"]); ?>"/>
+                        <?php echo ($vo["musicname"]); ?> - <?php echo ($vo["singer"]); ?><input type="hidden" class="<?php echo ($vo["frommedia"]); ?>" value="<?php echo ($vo["musicaddress"]); ?>"  name="<?php echo ($i); ?>"/>
                     </div>
                 </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
     </div>
 </div>
 </body>
-<script type="text/javascript" src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Public/home/js/jquery-weui.min.js"></script>
 <script>
     var now=$(".weui_cells_bd").children('input[name=1]');
     var songsrc= now.val();

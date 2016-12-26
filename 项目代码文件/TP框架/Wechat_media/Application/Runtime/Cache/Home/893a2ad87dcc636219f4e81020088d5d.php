@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
-    <title>电影内容页</title>
+    <link rel="stylesheet" href="/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/demos.css" type="text/css"/>
+    <title><?php echo ($content["type"]); ?>:<?php echo ($content["title"]); ?></title>
     <style>
+        body{
+            width: 100%;
+        }
         .weui_search_bar{
             width: 100%;
         }
-        .vm{
-            margin:0;
+        .vm {
+            margin: 0;
         }
         .vm img{
             width: 100%;
             height:auto;
+
         }
         #oval{
             width:80%;
@@ -24,11 +28,10 @@
             left: 10%;
             right: 10%;
             top: 10px;
-            background-color:#FFFFFF ;
-            border-radius: 50%/100%;
-            border:1px solid #000000;
-            text-align: center;
             padding: 25px 0px;
+        }
+        .showmore{
+            text-indent: 2.5em;
         }
         .bi{
             position: relative;
@@ -40,12 +43,14 @@
         }
         .bit{
             width:100%;
-            height:30px;
+            line-height: 30px;
             margin-top:5px;
             font-size: 20px;
-            background-color:#c13e3e;
+            color: white;
+            background-color: #83829e;
             text-indent: 4px;
         }
+
         .btc{
             margin:5px 10px;
         }
@@ -63,7 +68,7 @@
         }
         .zan{
             position: absolute;
-            right: 5%;
+            left: 85%;
             top: 15px;
         }
         .time{
@@ -108,16 +113,38 @@
         .more{
             color: #a1a1a1;
         }
-        .black{
-            color: #000;
-        }
         .editorialize{
             font-size: 20px;
+            line-height: 30px;
             margin:0 2% 0 2%;
-            background-color:#c13e3e;
+            color: white;
+            text-indent: 4px;
+            background-color: #83829e;
             position: relative;
             top: 20px;
-            text-indent:4px;
+        }
+
+         .weui_cell .weui_cell_primary{
+            border-radius: 4px;
+            border:1px solid gray;
+        }
+        .shoucang{
+            position: relative;
+            left:80%;
+            font-size: 18px;
+            color: #888888;
+            width: 20%;
+        }
+        .shoucang img{
+            position: relative;
+            left:50%;
+            position:absolute;
+            top: 0px;
+            height: 26px;
+        }
+        .shoucang p{
+            position: relative;
+            right:30%;
         }
     </style>
 </head>
@@ -137,18 +164,22 @@
         <div id="oval">
                 <p>导演：<?php echo ($content['director']); ?></p>
                 <p>主演：<?php echo ($content['actor']['0']); ?><a href="javascript:void(0);" class="more">//更多</a><input hidden value="<?php echo ($content['actor']['1']); ?>"></p>
+                <p class="showmore"></p>
                 <p>类型：<?php echo ($content['type']); ?></p>
         </div>
         <!--影视信息结束-->
         <!--简介-->
-        <div class="bi">
+       <div class="bi">
             <div class="bit">简介：</div>
             <div class="btc">
-                <div class="bp">
-                    <p><?php echo ($content['introduce']); ?></p>
+                <div id="box">
+            <p><?php echo ($content['introduce']); ?></p>
                 </div>
             </div>
-        </div>
+           <div class="shoucang" >
+               <p>收藏</p><img src="/Public/home/images/shoucangqian.png">
+           </div>
+       </div>
         <!--结束简介-->
         <!--评论-->
         <div class="editorialize">快评:</div>
@@ -164,7 +195,7 @@
                         <p><?php echo (date("Y-m-d H:i",$comment["time"])); ?></p>
                     </div>
                     <div class="zan">
-                        <div class="weui_btn weui_btn_mini weui_btn_default"><p>赞<?php echo ($comment["parisecount"]); ?></p><input class="id" hidden value="<?php echo ($comment["c_id"]); ?>"></div>
+                        <p><img  src="/Public/home/images/zanqian.png"/><?php echo ($comment["parisecount"]); ?></p><input class="id" hidden value="<?php echo ($comment["c_id"]); ?>">
                     </div>
                 </div>
                 <div class="comment_content">
@@ -181,14 +212,13 @@
         <div class="weui_cells weui_cells_form">
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <textarea class="weui_textarea" placeholder="请输入评论" rows="4"></textarea>
+                    <textarea class="weui_textarea" placeholder="说点什么吧" rows="4"></textarea>
                     <div class="weui_textarea_counter"><span class="OK">0</span>/200</div>
                 </div>
             </div>
         </div>
         <a href="javascript:;" class="weui_btn weui_btn_primary">发表</a>
     </div>
-
     <!--结束评论弹出框-->
     <div class="weui_tabbar">
         <div class="weui_search_bar" id="search_bar">
@@ -201,41 +231,57 @@
     </div>
 </div>
 </body>
-<script src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script src="/Wechat_media/Public/home/lib/fastclick.js"></script>
-<script src="/Wechat_media/Public/home/js/jquery-weui.js"></script>
+<script src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script src="/Public/home/lib/fastclick.js"></script>
+<script src="/Public/home/js/jquery-weui.js"></script>
 <script>
     var MAX_LENGTH=200; //最大输入字数
-    $(document).ready(function(){
-        $.post("<?php echo U('home/adminrcmd/getsession');?>",function (data) {
-            var session = jQuery.parseJSON(data)
-            $.each(session,function (n,value) {
-                $(".id").each(function () {
-                    var id = $(this).val();
-                    if (id == value){
-                        $(this).parent().addClass("praise");
-                    }
-                });
+    var img = "/Public/home/images/zanqian.png";
+    var src = "/Public/home/images/zanhou.png";
+    var prev ="/Public/home/images/shoucangqian.png";
+    var next = "/Public/home/images/shoucang.png";
+    var mediaId = "<?php echo ($content["ar_id"]); ?>";
+        $(document).ready(function(){
+            //保持点赞样式
+            $.post("<?php echo U('home/adminrcmd/getsession');?>",function (data) {
+                var session = jQuery.parseJSON(data)
+                $.each(session,function (n,value) {
+                    $(".id").each(function () {
+                        var id = $(this).val();
+                        if (id == value){
+                            $(this).prev().children('img').attr("src",src);
+                        }
+                    });
+                })
+            });
+            //保持收藏样式
+            $.post("<?php echo U('home/adminrcmd/keep');?>",{"mediaId":mediaId},function (data) {
+                data=eval(data);
+                console.log(data);
+                if(data==1){
+                    $('.shoucang').children('img').attr('src',next);
+                    $('.shoucang').children('p').text('已收藏');
+                }
             })
         });
-    });
-    $(".weui_tab_bd .weui_cells .weui_btn_mini").unbind('click').on('click',function(){
-        var classname = $.trim($(this).attr('class')).substr(-6);
-        var id = $(this).children(".id").val();
-        var num = parseInt($.trim($(this).text()).substr(1));
-        if (classname=='praise'){
+    //点赞
+    $('.zan').unbind('click').on('click',function () {
+        var id = $(this).children('.id').val();//获取评论id
+        var num = $(this).children('p').text();//获取点赞数量
+        var cimg = $(this).children('p').children('img').attr("src");
+        if (cimg==src){
             var url="<?php echo U('home/adminrcmd/praise_c');?>";
             $.post(url,{"c_id":id});
-            num = num-1;
-            $(this).removeClass("praise");
-        }else{
+            num = num*1-1;
+            $(this).children('p').html('<img src="'+img+'" />'+num);
+        }else if(cimg==img){
             var url="<?php echo U('home/adminrcmd/praise');?>";
             $.post(url,{"c_id":id});
-            num = num+1;
-            $(this).addClass("praise");
+            num = num*1+1;
+            $(this).children('p').html('<img src="'+ src+'" />'+num);
         }
-        $(this).children('p').text('赞'+num);
     });
+
     $(".weui_tabbar").click(function () {
         $(".comment").show();
         $(".background").show();
@@ -266,6 +312,7 @@
             });
         }
     });
+    //评论动态显示字数
     $(".weui_textarea").keyup(function () {
         var len = $(".weui_textarea").val().length;
         if (len>MAX_LENGTH){
@@ -275,10 +322,58 @@
         var length = $(".weui_textarea").val().length;
         $(".OK").text(length );
     });
+    //点击更多加载
     $(".more").on('click',function () {
-        $(this).text($(this).parent().children('input').val());
-        $(this).removeClass('more');
-        $(this).addClass('black');
+        $(".showmore").text($(this).parent().children('input').val());
+        $(this).hide();
     })
 </script>
+
+<script>
+    function show(){
+        var box = document.getElementById("box");
+        var text = box.innerHTML;
+        var newBox = document.createElement("div");
+        var btn = document.createElement("a");
+        newBox.innerHTML = text.substring(0,148);
+        btn.innerHTML = text.length > 148 ? "更多" : "";
+        btn.href = "###";
+        btn.onclick = function(){
+            if (btn.innerHTML == "更多"){
+                btn.innerHTML = "收起";
+                newBox.innerHTML = text;
+            }else{
+                btn.innerHTML = "更多";
+                newBox.innerHTML = text.substring(0,148);
+            }
+        }
+        box.innerHTML = "";
+        box.appendChild(newBox);
+        box.appendChild(btn);
+    }
+    show();
+    /*
+       刷新页面保持收藏样式
+   */
+    /*
+    收藏事件
+     */
+    var url="<?php echo U('home/adminrcmd/admin_collection');?>";
+    $('.shoucang').unbind('click').on('click',function () {
+
+        var mediaId = "<?php echo ($content["ar_id"]); ?>";
+        var img = $(this).children('img').attr('src');
+        if(img==prev){
+            $.post(url,{"mediaId":mediaId});
+            $(this).children('img').attr('src',next);
+            $(this).children('p').text('已收藏');
+        }
+        else if(img==next){
+            $.post("<?php echo U('home/adminrcmd/admin_collection_c');?>",{"mediaId":mediaId});
+            $(this).children('img').attr('src',prev);
+            $(this).children('p').text('收藏');
+        }
+    });
+</script>
+
 </html>

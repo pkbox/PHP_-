@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
-    <title>找一找</title>
+    <link rel="stylesheet" href="/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/demos.css" type="text/css"/>
+    <title>时间查询</title>
     <style>
         .media_hd{
             width: 25%;
@@ -27,9 +27,16 @@
         .weui_panel_hd{
             float: right;
         }
-        .weui_media_desc{
+        .media_desc{
             font-family: 'STXinwei';
             font-size: 14px;
+            color:#999;
+            line-height:1.2;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-line-clamp:4;
         }
         .color{
             background: #ee8a87;
@@ -55,38 +62,38 @@
     <div class="weui_tabbar">
         <a href="user_recommend_index.html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="/Wechat_media/Public/home/images/home.png" alt="">
+                <img src="/Public/home/images/shouye2.png" alt="">
             </div>
             <p class="weui_tabbar_label">主页</p>
         </a>
         <a href=" user_recommend_search.html" class="weui_tabbar_item weui_bar_item_on">
             <div class="weui_tabbar_icon">
-                <img src="/Wechat_media/Public/home/images/sousuo.png" alt="">
+                <img src="/Public/home/images/sousuo.png" alt="">
             </div>
             <p class="weui_tabbar_label">搜索</p>
         </a>
         <a href="user_recommend.html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="/Wechat_media/Public/home/images/woyaotuijian.png" alt="">
+                <img src="/Public/home/images/woyaotuijian.png" alt="">
             </div>
             <p class="weui_tabbar_label">我要推荐</p>
         </a>
-        <a href=".html" class="weui_tabbar_item">
+        <a href="<?php echo U('home/usershome/my_home');?>" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="/Wechat_media/Public/home/images/gerenzhongxin10.png" alt="">
+                <img src="/Public/home/images/gerenzhongxin.png" alt="">
             </div>
             <p class="weui_tabbar_label">个人中心</p>
         </a>
     </div>
 </div>
-<script src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script src="/Wechat_media/Public/home/lib/fastclick.js"></script>
+<script src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script src="/Public/home/lib/fastclick.js"></script>
 <script>
     $(function() {
         FastClick.attach(document.body);
     });
 </script>
-<script src="/Wechat_media/Public/home/js/jquery-weui.js"></script>
+<script src="/Public/home/js/jquery-weui.js"></script>
 <script>
     //            判定用户是否收藏
     function collectioncheck() {
@@ -97,6 +104,7 @@
                     var id = $(this).val();
                     if (id == value.mediaid){
                         $(this).parent().addClass("color");
+                        $(this).parent().children("p").text('已收藏');
                     }
                 });
             })
@@ -127,6 +135,7 @@
                 var url="<?php echo U('home/usersrcmd/collection');?>";
                 $.post(url,{"mediaid":id});
                 $(this).addClass("color");
+                $(this).children("p").text('已收藏');
             }
         });
     }
@@ -151,17 +160,16 @@
         });
     }
     $("#date").calendar({
-        value:["2016-11-5"],
-        maxDate:'2016-12-10',
-        minDate:'2016-10-1',
+        maxDate:"<?php echo ($maxDate); ?>",
+        minDate:"<?php echo ($minDate); ?>",
         onClose: function (p) {
             var url = "<?php echo U('home/usersrcmd/search');?>";
             var time = $("#date").val();
             $.post(url,{'time':time},function (data) {
+                $(".content").html('');
                 if (data=='0'){
                     $.toast('没有推荐了!','text');
                 }else {
-                    $(".content").html('');
                     var recommends = jQuery.parseJSON(data);
                     for (var i=0;i<recommends.length;i++){
                         var urli = "<?php echo U('home/usersrcmd/media_content/UR_Id');?>/"+recommends[i].ur_id;
@@ -174,7 +182,7 @@
                                 '<div  class="conment_hd">' +
                                 '<h3 class="title"> &nbsp;&nbsp;&nbsp;&nbsp;' + recommends[i].title + '</h3>' +
                                 '<p class="tuijianren">推荐人：' + recommends[i].name + '</p>' +
-                                '<p class="weui_media_desc">' +
+                                '<p class="media_desc">' +
                                 '推荐理由：' + recommends[i].reason +
                                 '</p>' +
                                 '</div>' +

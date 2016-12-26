@@ -3,6 +3,7 @@ namespace Admin\controller;
 
 use Think\Controller;
 use Think\Page;
+use Think\Upload;
 
 class MovieController extends Controller{
     protected $admin_content_comment;//评论表
@@ -33,6 +34,9 @@ class MovieController extends Controller{
      * 官方推荐
      */
     public function admin_recommend(){
+        $this->media_type = M('media_type');
+        $types = $this->media_type->select();
+
         $this->admin_recommend_lists = M('admin_recommend_lists');
         // 1. 获取记录总条数
         $count = $this->admin_recommend_lists->count();
@@ -49,6 +53,7 @@ class MovieController extends Controller{
             ->limit($page->firstRow.','.$page->listRows)
             ->select();
         // 5. 输出查询结果
+        $this->assign('types',$types);
         $this->assign('list', $results);
         // 6. 输出分页码
         $this->assign('pagelist', $page->show());
@@ -100,7 +105,8 @@ class MovieController extends Controller{
         $info=$upload->upload();
         $data=I();
         if($info) {
-            $data['thumb'] = $_SERVER['DOCUMENT_ROOT'].__ROOT__.'/Public/admin/Uploads/'.$info['file']['savepath'].$info['file']['savename'];
+            $filePath=$_SERVER['DOCUMENT_ROOT'].__ROOT__.'/Public/admin/Uploads/'.$info['file']['savepath'].$info['file']['savename'];
+            $data['thumb'] = substr(strrchr($filePath,'W'),1);
         }
         $this->admin_recommend_lists = M('admin_recommend_lists');
         $this->admin_recommend_lists->where('AR_ID='.$data['AR_ID'])->save($data);
@@ -114,7 +120,11 @@ class MovieController extends Controller{
         $title=I('title');
         $this->admin_recommend_lists = M('admin_recommend_lists');
         $result=$this->admin_recommend_lists->where("title='$title'")->select();
+        $this->media_type = M('media_type');
+        $types = $this->media_type->select();
+        $this->assign('types',$types);
         if($result){
+            $result = $result['0'];
             $this->assign('results',$result);
             $this->display();
         }else{
@@ -136,6 +146,9 @@ class MovieController extends Controller{
         }
     }
     public function error(){
+        $this->media_type = M('media_type');
+        $types = $this->media_type->select();
+        $this->assign('types',$types);
         $this->display();
     }
     /*
@@ -205,12 +218,19 @@ public function user_search()
         $this->display('user_error');
     }
 }
+/*
+*自动获取页面显示
+*/
     public function movie_automatic(){
         $this->media_type = M('media_type');
         $result = $this->media_type->select();
         $this->assign('types',$result);
         $this->display();
     }
+    /*
+    *自动获取
+    *从豆瓣地址获取json串，并传到页面
+    */
     public function getdata(){
         $doubanid = I('doubanid');
         $limit = $this->_num;
@@ -219,6 +239,10 @@ public function user_search()
         $data = file_get_contents($url);
         echo $data;
     }
+    /*
+    *自动获取
+    *将信息存入数据库
+    */
     public function adddata(){
         $data = I('data');
         $typeid = I('typeid');
@@ -239,6 +263,10 @@ public function user_search()
         $json['id'] = $id;
         echo json_encode($json);
     }
+    /*
+     * 自动获取
+     *将豆瓣电影内容也get下来运行jQuery
+     */
     public function addother(){
         $urlid = I('urlid');
         $AR_ID = (int)I('AR_ID');
@@ -262,12 +290,86 @@ public function user_search()
         </script>
 STR;
     }
+    /*
+     * 自动获取
+     * 保存导演等信息
+     */
     public function saveother(){
         $data = I();
         $AR_ID = $data['AR_ID'];
         unset($data['AR_ID']);
         $this->admin_recommend_lists = M('admin_recommend_lists');
         $this->admin_recommend_lists->where("AR_ID=$AR_ID")->save($data);
+    }
+    /*
+/* 电影歌曲
+*/
+    public function music_recommend(){
+        $this->music_recommend_lists=M('music_recommend_lists');
+        $count = $this->music_recommend_lists->count();
+        $pageSize =$this->_num;
+        $page = new Page($count, $pageSize);
+        $page->setConfig('prev','上一页');
+        $page->setConfig('next','下一页');
+        $page->setConfig('first','首页');
+        $page->setConfig('last','尾页');
+        $results = $this->music_recommend_lists
+            ->limit($page->firstRow.','.$page->listRows)
+            ->order('music_Id desc')
+            ->select();
+        $this->assign('list', $results);
+        $this->assign('pagelist', $page->show());
+        $this->display();
+    }
+    /*
+     * 歌曲删除
+     */
+    public function  music_delete(){
+        $id=(int)I('id');
+        $this->music_recommend_lists=M('music_recommend_lists');
+        $this->music_recommend_lists->where("music_Id=$id")->delete();
+        echo '1';
+    }
+    /*
+     * 歌曲详情
+     */
+    public function music_detail(){
+        $id=(int)I('id');
+        $this->music_recommend_lists=M('music_recommend_lists');
+        $result=$this->music_recommend_lists->where("music_Id=$id")->select();
+        $result=$result['0'];
+        $this->assign('results',$result);
+        $this->display();
+    }
+    /*
+     * 歌曲修改
+     */
+    public function music_alter(){
+        $id=(int)I('id');
+        $this->music_recommend_lists = M('music_recommend_lists');
+        $results=$this->music_recommend_lists->where("music_Id=$id")->select();
+        $result=$results['0'];
+        $this->assign('results',$result);
+        $this->display();
+    }
+    /*
+     * 歌曲添加
+     */
+    public function music_add(){
+        $this->display();
+    }
+    public function music_addcont(){
+        $upload = new Upload();// 实例化上传类
+        $data=I();
+        $upload->rootPath  =      './Public/admin/mp3/'; // 设置附件上传目录
+        $info   =   $upload->upload();
+    if($info) {
+        $filePath=$_SERVER['DOCUMENT_ROOT'].__ROOT__.'/Public/admin/mp3/'.$info['file']['savepath'].$info['file']['savename'];
+        $data['MusicAddress']=substr(strrchr($filePath,'W'),1);
+    }
+        $this->music_recommend_lists = M('music_recommend_lists');
+        $this->music_recommend_lists->add($data);
+        header("location:music_recommend");
     }
 }
 

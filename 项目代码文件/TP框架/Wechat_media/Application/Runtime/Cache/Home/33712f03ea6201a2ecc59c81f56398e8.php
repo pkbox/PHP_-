@@ -8,8 +8,8 @@
 	<meta charset="utf-8" />
 	<!-- 自适应设备 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/lib/weui.min.css">
-	<link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/css/jquery-weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/home/lib/weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/home/css/jquery-weui.min.css">
 
 	<style>
 		html,body{
@@ -19,7 +19,6 @@
 			width: 25%;
 			float: left;
 			height: auto;
-			position: ;
 		}
 		.media_hd img{
 			width: 100%;
@@ -33,14 +32,26 @@
 		}
      	.weui_panel_hd{
      		float: right;
+     		padding: 0px 10px 10px 0px;
      	}
-    	.weui_media_desc{
+    	.media_desc{
     		font-family: 'STXinwei'; 
     		font-size: 14px;
+    		color:#999;
+    		line-height:1.2;
+    		overflow:hidden;
+    		text-overflow:ellipsis;
+    		display:-webkit-box;
+    		-webkit-box-orient:vertical;
+    		-webkit-line-clamp:4;
     	}
 		.color{
-			background: #ee8a87;
+			background: #c4c4c4;
 		}
+		.title{
+			 font-family: 幼圆;
+		}
+		 
 	</style>
 </head>
 
@@ -68,17 +79,18 @@
 	       <div class="content" >
 			   <?php if(is_array($hot)): $i = 0; $__LIST__ = $hot;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><div class="weui_panel weui_panel_access">
 						  <div class="weui_panel_bd">
-
+							  <a href="<?php echo U('home/usersrcmd/user_recommend_content/ur_id');?>/<?php echo ($list["ur_id"]); ?>" class="weui_media_box weui_media_appmsg">
 							  <div class="media_hd">
 								<img class="weui_media_appmsg_thumb" src="<?php echo ($list["thumb"]); ?>" alt="无图">
 							  </div>
 							  <div  class="conment_hd">
-								<h3 class="title"> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($list["title"]); ?></h3>
+								<h3 class="title"> &nbsp;<?php echo ($list["title"]); ?></h3>
 								<p class="tuijianren">推荐人： <?php echo ($list["name"]); ?></p>
-								<p class="weui_media_desc">
+								<p class="media_desc">
 									推荐理由：<?php echo ($list["reason"]); ?>
 								</p>
 							  </div>
+							  </a>
 							<div class="weui_panel_hd">
 								<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default collection"><p>收藏</p><input hidden class="id" value="<?php echo ($list["ur_id"]); ?>"></div>
 								&nbsp;&nbsp;
@@ -105,17 +117,18 @@
 	        <div class="content" >
 				<?php if(is_array($result)): $i = 0; $__LIST__ = $result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><div class="weui_panel weui_panel_access">
 						<div class="weui_panel_bd">
-
+							<a href="<?php echo U('home/usersrcmd/user_recommend_content/ur_id');?>/<?php echo ($list["ur_id"]); ?>" class="weui_media_box weui_media_appmsg">
 							<div class="media_hd">
 								<img class="weui_media_appmsg_thumb" src="<?php echo ($list["thumb"]); ?>" alt="无图">
 							</div>
 							<div  class="conment_hd">
-								<h3 class="title"> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($list["title"]); ?></h3>
+								<h3 class="title"> &nbsp;&nbsp;<?php echo ($list["title"]); ?></h3>
 								<p class="tuijianren">推荐人： <?php echo ($list["name"]); ?></p>
-								<p class="weui_media_desc">
+								<p class="media_desc">
 									推荐理由：<?php echo ($list["reason"]); ?>
 								</p>
 							</div>
+							</a>
 							<div class="weui_panel_hd">
 								<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default collection"><p>收藏</p><input hidden class="id" value="<?php echo ($list["ur_id"]); ?>"></div>
 								&nbsp;&nbsp;
@@ -136,25 +149,25 @@
 		   <div class="weui_tabbar">
 	    <a href="user_recommend_index.html" class="weui_tabbar_item weui_bar_item_on">
 	      <div class="weui_tabbar_icon">
-	        <img src="/Wechat_media/Public/home/images/home.png" alt="">
+	        <img src="/Public/home/images/shouye2.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">主页</p>
 	    </a>
 	    <a href=" user_recommend_search.html" class="weui_tabbar_item">
 	      <div class="weui_tabbar_icon">
-	        <img src="/Wechat_media/Public/home/images/sousuo.png" alt="">
+	        <img src="/Public/home/images/sousuo.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">搜索</p>
 	    </a>
 	    <a href="user_recommend.html" class="weui_tabbar_item">
 	      <div class="weui_tabbar_icon">
-	        <img src="/Wechat_media/Public/home/images/woyaotuijian.png" alt="">
+	        <img src="/Public/home/images/woyaotuijian.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">我要推荐</p>
 	    </a>
 	    <a href="<?php echo U('home/usershome/my_home');?>" class="weui_tabbar_item">
 	      <div class="weui_tabbar_icon">
-	        <img src="/Wechat_media/Public/home/images/gerenzhongxin10.png" alt="">
+	        <img src="/Public/home/images/gerenzhongxin.png" alt="">
 	      </div>
 	      <p class="weui_tabbar_label">个人中心</p>
 	    </a>
@@ -164,33 +177,36 @@
 </body>
 
 
-<script type="text/javascript" src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/jquery-weui.min.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/swiper.js"></script>
+<script type="text/javascript" src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Public/home/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/Public/home/js/swiper.js"></script>
 
 <script type="text/javascript">
 	var hotP = 0;
 	var timeP = 0;
 <!--加载数据函数-->
+	var src="<?php echo U('home/usersrcmd/user_recommend_content/ur_id');?>/<?php echo ($list["ur_id"]); ?>";
 function append(data,cla) {
 	for(i=0;i<data.length;i++) {
 		$(cla).append(
 				'<div class="weui_panel weui_panel_access">' +
 				'<div class="weui_panel_bd">' +
+				'<a href="'+src+'" class="weui_media_box weui_media_appmsg">'+
 				'<div class="media_hd">' +
 				'<img class="weui_media_appmsg_thumb" src=" ' + data[i].thumb + '" alt="无图">' +
 				'</div>' +
 				'<div  class="conment_hd">' +
-				'<h3 class="title"> &nbsp;&nbsp;&nbsp;&nbsp;' + data[i].title + '</h3>' +
+				'<h3 class="title"> &nbsp;&nbsp;' + data[i].title + '</h3>' +
 				'<p class="tuijianren">推荐人：' + data[i].name + '</p>' +
-				'<p class="weui_media_desc">' +
+				'<p class="media_desc">' +
 				'推荐理由：' + data[i].reason +
 				'</p>' +
 				'</div>' +
+				'</a>'+
 				'<div class="weui_panel_hd">' +
 				'<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default collection"><p>收藏</p><input hidden class="id" value="'+data[i].ur_id+'"></div>' +
 				'&nbsp;&nbsp;' +
-				'<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default praise"><p>喜欢' + data[i].parisecount + '</p><input hidden class="id" value="'+data[0].ur_id+'" /></div>' +							'</div>' +
+				'<div href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default praise"><p>喜欢' + data[i].parisecount + '</p><input hidden class="id" value="'+data[i].ur_id+'" /></div>' +							'</div>' +
 				'</div>' +
 				'</div>');
 	}
@@ -204,6 +220,7 @@ function append(data,cla) {
 					var id = $(this).val();
 					if (id == value.mediaid){
 						$(this).parent().addClass("color");
+						$(this).parent().children("p").text('已收藏');
 					}
 				});
 			})
@@ -234,6 +251,7 @@ function append(data,cla) {
 				var url="<?php echo U('home/usersrcmd/collection');?>";
 				$.post(url,{"mediaid":id});
 				$(this).addClass("color");
+				$(this).children("p").text('已收藏');
 			}
 		});
 	}
@@ -275,10 +293,10 @@ function append(data,cla) {
 			append(data,"#tab1 .content");
 			$(".weui_tab_bd #tab1").pullToRefreshDone();
 			hotP = 0;
-			collection();
-			praise();
 			collectioncheck();
 			praisecheck();
+			collection();
+			praise();
 
 		})
 	});
@@ -291,11 +309,11 @@ function append(data,cla) {
 			append(data,"#tab2 .content");
 			$(".weui_tab_bd #tab2").pullToRefreshDone();
 			timeP = 0;
-			collection();
-			praise();
+			
 			collectioncheck();
 			praisecheck();
-
+			collection();
+			praise();
 		})
 	});
 

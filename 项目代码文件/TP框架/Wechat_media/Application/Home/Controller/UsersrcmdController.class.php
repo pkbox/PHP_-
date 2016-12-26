@@ -9,6 +9,7 @@ namespace Home\Controller;
 
 
 use Think\Controller;
+use Common\Library\WeChat;;
 
 class UsersrcmdController extends Controller
 {
@@ -16,6 +17,26 @@ class UsersrcmdController extends Controller
     public  $_num = 5;//刷新后显示的数据条数
     public  $_numG = 5;//滚动加载的条数
     protected $user_recommend_collection;
+    protected $user_lists;
+    protected $user_recommend_comment;
+
+    public function index(){
+        $user = WeChat::getUsers();
+        $wechatid = $user->openid;
+        $data['Name'] = $user->nickname;
+        $this->user_lists = M('user_lists');
+        if ($result = $this->user_lists->where("Wechatid='$wechatid'")->select()){
+            $this->user_lists->where("Wechatid='$wechatid'")->save($data);
+            $user_id = (int)$result['0']['user_id'];
+        }else{
+            $data["Wechatid"] = $wechatid;
+            $user_id = (int)$this->user_lists->add($data);
+        }
+        session('userid',$user_id);
+        session('name',$data['Name']);
+        session('userimg',$user->headimgurl);
+        header("location:user_recommend_index");
+    }
     /*
      * 显示用户推荐区首页页面
      */
@@ -106,6 +127,30 @@ class UsersrcmdController extends Controller
     }
 
     /**
+    * 用户推荐搜索页面显示
+    */
+    public function user_recommend_search(){
+        $time = time();
+        $maxDate = date('Y-m-d',$time);
+        $minDate = '2016-12-10';
+        $this->assign('maxDate',$maxDate);
+        $this->assign('minDate',$minDate);
+        $this->display();
+    }
+    /*
+     * 显示用户推荐内容页
+     */
+    public function user_recommend_content(){
+        $ur_id = I("ur_id");
+        $this->user_recommend_lists = M('user_recommend_lists');
+        $this->user_recommend_comment = M('user_recommend_comment');
+        $result = $this->user_recommend_lists->where("UR_ID=$ur_id")->select();
+        $comments = $this->user_recommend_comment->where("MediaID=$ur_id")->select();
+        $this->assign('content',$result['0']);
+        $this->assign('comments',$comments);
+        $this->display();
+    }
+    /**
      * 用户推荐区搜索页面
      */
     public function search(){
@@ -131,7 +176,7 @@ class UsersrcmdController extends Controller
         if ($_FILES){
             $file = $_FILES['file'];
             $file['name'] = date('YmdHis',time()) . $data['UserID'] . strrchr($file['name'],'.');
-            $filePath = $_SERVER['DOCUMENT_ROOT'].__ROOT__.'/Public/uploads/'.$file['name'];
+            $filePath = $_SERVER['DOCUMENT_ROOT'].__ROOT__.'/Public/home/uploads/'.$file['name'];
             if(move_uploaded_file($file['tmp_name'],$filePath)){
                 $data['thumb'] = substr(strrchr($filePath,'W'),1);
                 $result = $this->user_recommend_lists->add($data);
@@ -162,6 +207,9 @@ class UsersrcmdController extends Controller
      */
     public function getsession(){
         echo json_encode(session('UR_ID'));
+    }
+    public function com_getsession(){
+        echo json_encode(session('U_ID'));
     }
 
     /**
@@ -215,5 +263,87 @@ class UsersrcmdController extends Controller
         $this->user_recommend_lists = M('user_recommend_lists');
         //数据更新,点赞数减一
         $this->user_recommend_lists->where("UR_Id=$UR_ID")->setDec('PariseCount');
+    }
+    public function com_praise(){
+        $U_ID = I('u_id');
+        if(!session('U_ID')){
+            session('U_ID',array());
+        }
+        $arrU_ID = session('U_ID');
+        array_push($arrU_ID,$U_ID);
+        session('U_ID',$arrU_ID);
+        $this->user_recommend_comment = M('user_recommend_comment');
+        $this->user_recommend_comment->where("U_ID=$U_ID")->setInc('PariseCount');
+    }
+    /**
+     * 取消点赞功能函数
+     */
+    public function com_praise_c(){
+        $U_ID = I('u_id');
+        $arrU_ID = session('U_ID');
+        foreach ($arrU_ID as $key => $ID){
+            if ($ID == $U_ID){
+                unset($arrU_ID[$key]);
+            }
+        }
+        session("U_ID",$arrU_ID);
+        $this->user_recommend_comment = M('user_recommend_comment');
+        $this->user_recommend_comment->where("U_ID=$U_ID")->setDec('PariseCount');
+    }
+    /**
+    * 点赞检查
+    */
+    public function praisecheck(){
+        //获取要检查的推荐UR_ID
+        $UR_Id = I('ur_id');
+        //获取session中的UR_ID
+        $arrUR_ID = session('UR_ID');
+        //若存在，返回字符串1
+        $f = false;
+        foreach ($arrUR_ID as $key => $ID){
+            if ($ID == $UR_Id){
+                $f = true;
+            }
+        }
+        if ($f) {
+            echo "1";
+        }
+    }
+    /**
+    *收藏检查
+    */
+    public function collectioncheck(){
+        $MediaId = I('mediaId');
+        $Uid = (int)session('userid');
+        $this->user_recommend_collection = M("user_recommend_collection");
+        $count = $this->user_recommend_collection->where("MediaId=$MediaId and Uid=$Uid")->count();
+        if ($count) {
+            echo "1";
+        }
+    }
+    /**
+    *用户阅读量统计
+    */
+    public function urcount(){
+        $UR_Id = I('ur_id');
+        //实例化模型
+        $this->user_recommend_lists = M("user_recommend_lists");
+        //更新数据
+        $this->user_recommend_lists->where("UR_Id=$UR_Id")->setInc('count');
+    }
+    /*
+     *用户发表评论
+     */
+    public function comment_publish(){
+        $data['MediaID'] = I('mediaid');
+        $data['content'] = I('content');
+        $data['time'] = time();
+        $data['userName'] = session('name');
+        $data['userImg'] = session('userimg');
+        $this->user_recommend_comment = M('user_recommend_comment');
+        $result = $this->user_recommend_comment->add($data);
+        if ($result){
+            echo '1';
+        }
     }
 }

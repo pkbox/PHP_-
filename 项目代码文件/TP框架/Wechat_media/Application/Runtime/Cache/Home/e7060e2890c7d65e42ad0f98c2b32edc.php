@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/lib/weui.min.css">
-    <link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="/Public/home/lib/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="/Public/home/css/jquery-weui.min.css">
     <style>
          html,body{
         height: 100%;
@@ -20,19 +20,25 @@
         }
         .weui_ini{
         	word-break:break-all;
-          font-size: 19px
+          font-size: 19px;
+          text-align: center;
         }
         .images{
           text-align:center;
         }
-        .bbt{
-          text-align: right;
+        .weui_bbt{
+          text-align: center;
+          font-family: 幼圆;
         }
         .weui_navbar_item{
           padding: 7px 0;
         }
         .weui_tab_bd{
-        background-image: url(/Wechat_media/Public/home/images/beijing4.jpg);
+        background-image: url(/Public/home/images/beijing4.jpg);
+        }
+        .kk{
+             color: #666666;
+             font-size: 0.8em;
         }
     </style>
 </head>
@@ -51,13 +57,14 @@
   </div>
 
     <div class="images">
-    <img src="/Wechat_media/Public/home/images/erweima.jpg">
+    <img src="/Public/home/images/erweima.png" height="200px"><p class="kk">点关注，不迷路.  </p>
+    <p class="kk">  随时随地获取最新电影信息。 </p>
     </div>
 
     <div class="weui_bbt">
        <table>
        <tr>
-        <td>点关注，不迷路.随时随地获取最新电影信息。</td>
+        <td><h6> </h6></td>
       </tr>
       </table>
     </div>
@@ -65,27 +72,27 @@
     <div class="weui_tabbar">
       <a href="<?php echo U('home/adminrcmd/media_index');?>" class="weui_tabbar_item ">
         <div class="weui_tabbar_icon">
-          <img src="/Wechat_media/Public/home/images/home.jpg" alt="">
+          <img src="/Public/home/images/home.jpg" alt="">
         </div>
         <p class="weui_tabbar_label">影视推荐</p>
       </a>
       <a href="<?php echo U('home/usersrcmd/user_recommend_index');?>" class="weui_tabbar_item">
         <div class="weui_tabbar_icon">
-          <img src="/Wechat_media/Public/home/images/yonghutuijian.png" alt="">
+          <img src="/Public/home/images/yonghutuijian.png" alt="">
         </div>
         <p class="weui_tabbar_label">用户推荐</p>
       </a>
       
       <a href="my_home.html" class="weui_tabbar_item">
         <div class="weui_tabbar_icon">
-          <img src="/Wechat_media/Public/home/images/gerenzhongxin1.png" alt="">
+          <img src="/Public/home/images/gerenzhongxin1.png" alt="">
         </div>
         <p class="weui_tabbar_label">个人中心</p>
       </a>
     </div>
   </div>
 </body>
-<script type="text/javascript" src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/jquery-weui.min.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/swiper.js"></script>
+<script type="text/javascript" src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Public/home/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/Public/home/js/swiper.js"></script>
 </html>

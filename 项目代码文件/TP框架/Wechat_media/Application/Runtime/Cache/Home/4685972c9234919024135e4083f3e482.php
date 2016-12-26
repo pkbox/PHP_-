@@ -8,8 +8,8 @@
 	<meta charset="utf-8" />
 	<!-- 自适应设备 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/lib/weui.min.css">
-	<link rel="stylesheet" type="text/css" href="/Wechat_media/Public/home/css/jquery-weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/home/lib/weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/home/css/jquery-weui.min.css">
 	<style>
 		html,body{
 			height: 100%;
@@ -22,6 +22,11 @@
         display: block;
         width: 100%;
     }
+    .swiper-container{
+        height: 45%;
+    }
+     
+    
 	</style>
 </head>
 <body>
@@ -41,7 +46,7 @@
 <div class="weui_grids">
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/1');?>" class="weui_grid js_grid" data-id="button">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/kehuan.png" alt="">
+      <img src="/Public/home/images/kehuan.png" alt="">
     </div>
     <p class="weui_grid_label">
       科幻
@@ -49,7 +54,7 @@
   </a>
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/2');?>" class="weui_grid js_grid" data-id="cell">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/xuanyi.png" alt="">
+      <img src="/Public/home/images/xuanyi.png" alt="">
     </div>
     <p class="weui_grid_label">
       悬疑
@@ -57,15 +62,15 @@
   </a>
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/3');?>" class="weui_grid js_grid" data-id="toast">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/lizhi.png" alt="">
+      <img src="/Public/home/images/lizhi.png" alt="">
     </div>
     <p class="weui_grid_label">
-      励志
+      冒险
     </p>
   </a>
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/4');?>" class="weui_grid js_grid" data-id="button">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/dongzuo.png" alt="">
+      <img src="/Public/home/images/dongzuo.png" alt="">
     </div>
     <p class="weui_grid_label">
       动作
@@ -73,7 +78,7 @@
   </a>
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/5');?>" class="weui_grid js_grid" data-id="cell">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/aiqing.png" alt="">
+      <img src="/Public/home/images/aiqing.png" alt="">
     </div>
     <p class="weui_grid_label">
       爱情
@@ -81,7 +86,7 @@
   </a>
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/6');?>" class="weui_grid js_grid" data-id="toast">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/kongbu.jpg" alt="">
+      <img src="/Public/home/images/kongbu.jpg" alt="">
     </div>
     <p class="weui_grid_label">
       恐怖
@@ -89,7 +94,7 @@
   </a>
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/7');?>" class="weui_grid js_grid" data-id="button">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/lunli.png" alt="">
+      <img src="/Public/home/images/lunli.png" alt="">
     </div>
     <p class="weui_grid_label">
       剧情
@@ -97,18 +102,18 @@
   </a>
   <a href="<?php echo U('home/adminrcmd/media_lists/type_id/8');?>" class="weui_grid js_grid" data-id="cell">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/xiju.jpg" alt="">
+      <img src="/Public/home/images/xiju.jpg" alt="">
     </div>
     <p class="weui_grid_label">
       喜剧
     </p>
   </a>
-  <a href="media_lists.html" class="weui_grid js_grid" data-id="toast">
+  <a href="<?php echo U('home/adminrcmd/media_lists/type_id/9');?>" class="weui_grid js_grid" data-id="cell">
     <div class="weui_grid_icon">
-      <img src="/Wechat_media/Public/home/images/icon_nav_cell.png" alt="">
+      <img src="/Public/home/images/dongman.png" alt="">
     </div>
     <p class="weui_grid_label">
-      更多
+      动漫
     </p>
   </a>
 </div>
@@ -117,28 +122,28 @@
   <div class="weui_tabbar">
     <a href="media_index.html" class="weui_tabbar_item weui_bar_item_on">
       <div class="weui_tabbar_icon">
-        <img src="/Wechat_media/Public/home/images/shouye.png" alt="">
+        <img src="/Public/home/images/shouye.png" alt="">
       </div>
       <p class="weui_tabbar_label">主页</p>
     </a>
     <a href="media_music.html" class="weui_tabbar_item">
       <div class="weui_tabbar_icon">
-        <img src="/Wechat_media/Public/home/images/yingshiyinyue.png" alt="">
+        <img src="/Public/home/images/yingshiyinyue.png" alt="">
       </div>
       <p class="weui_tabbar_label">音乐</p>
     </a>
     <a href="<?php echo U('home/usershome/my_home');?>" class="weui_tabbar_item">
       <div class="weui_tabbar_icon">
-        <img src="/Wechat_media/Public/home/images/gerenzhongxin.png" alt="">
+        <img src="/Public/home/images/gerenzhongxin.png" alt="">
       </div>
       <p class="weui_tabbar_label">个人中心</p>
     </a>
   </div>
 </div>
 </body>
-<script type="text/javascript" src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/jquery-weui.min.js"></script>
-<script type="text/javascript" src="/Wechat_media/Public/home/js/swiper.js"></script>
+<script type="text/javascript" src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Public/home/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/Public/home/js/swiper.js"></script>
 <script>
       $(".swiper-container").swiper({
         loop: true,

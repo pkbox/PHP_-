@@ -31,7 +31,6 @@ class UsershomeController extends Controller{
         //2.获取user_id，当用户授权网页的时候已经获取用户的信息。区别用户的唯一标识
         $user_id = session('userid');
 
-        $user_id = 1;//测试用的
 
         //3.从数据表中查找所有Uid为$user_id 的mediaId
             //3.1 收藏的官方推荐
@@ -62,7 +61,7 @@ class UsershomeController extends Controller{
      */
     public function my_recommend(){
         $user_id = session('userid');
-        $user_id = 1;//测试用
+        $user_id = 15;
         $this->user_recommend_lists = M('user_recommend_lists');
         $result = $this->user_recommend_lists->where("UserID=$user_id")->select();
         $this->assign("result",$result);
@@ -79,9 +78,6 @@ class UsershomeController extends Controller{
         $this->user_recommend_collection = M('user_recommend_collection');
         //2.获取user_id，当用户授权网页的时候已经获取用户的信息。区别用户的唯一标识
         $user_id = session('userid');
-
-        $user_id = 1;//测试用的
-
         $tab = I('tab');
         if($tab ==1){
             //3.1 收藏的官方推荐
@@ -111,7 +107,6 @@ class UsershomeController extends Controller{
     public function collection_c(){
         $val = I('val');
         $uid = session('userid');
-        $uid = 1;//测试用
         if(I('key')=='ar_id'){
             $this->admin_recommend_collection = M("admin_recommend_collection");
             if($this->admin_recommend_collection->where("uid=$uid and mediaid=$val")->delete()){

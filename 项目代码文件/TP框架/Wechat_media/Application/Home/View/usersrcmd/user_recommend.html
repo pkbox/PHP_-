@@ -32,7 +32,7 @@
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
                     <textarea class="weui_textarea" placeholder="请输入您推荐此电影的理由" rows="3"></textarea>
-                    <div class="weui_textarea_counter"><span class="OK">0</span>/200</div>
+                    <div class="weui_textarea_counter"><span class="OK">0</span>/300</div>
                 </div>
             </div>
             <div class="weui_cell weui_vcode">
@@ -66,9 +66,9 @@
 
 
     <div class="weui_tabbar">
-        <a href="user_recommend_index.html" class="weui_tabbar_item weui_bar_item_on">
+        <a href="user_recommend_index.html" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/home.png" alt="">
+                <img src="__PUBLIC__/home/images/shouye2.png" alt="">
             </div>
             <p class="weui_tabbar_label">主页</p>
         </a>
@@ -78,7 +78,7 @@
             </div>
             <p class="weui_tabbar_label">搜索</p>
         </a>
-        <a href="user_recommend.html" class="weui_tabbar_item">
+        <a href="user_recommend.html" class="weui_tabbar_item weui_bar_item_on">
             <div class="weui_tabbar_icon">
                 <img src="__PUBLIC__/home/images/woyaotuijian.png" alt="">
             </div>
@@ -86,7 +86,7 @@
         </a>
         <a href="{:U('home/usershome/my_home')}" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
-                <img src="__PUBLIC__/home/images/gerenzhongxin10.png" alt="">
+                <img src="__PUBLIC__/home/images/gerenzhongxin.png" alt="">
             </div>
             <p class="weui_tabbar_label">个人中心</p>
         </a>
@@ -98,7 +98,7 @@
 <script src="__PUBLIC__/home/js/jquery-weui.js"></script>
 <script src="__PUBLIC__/home/js/ajaxfileupload.js"></script>
 <script>
-    var MAX_LENGTH=200; //最大输入字数
+    var MAX_LENGTH=300; //最大输入字数
     var verifycheck=false;
 //    文本域输入动态变化
     $(".weui_textarea").keyup(function () {
@@ -140,7 +140,7 @@
                                 location.href = "{:U('home/usersrcmd/user_recommend_index')}";
                             }else{
                                 $.toast('发表失败','text');
-                                window.location.reload();
+                                // window.location.reload();
                             }
                         },
                         error: function (data, status, e)//服务器响应失败处理函数
@@ -184,6 +184,18 @@
                 verifycheck=false;
             }
         });
+    });
+    $(".weui_input").click(function(){
+        $(".weui_tabbar").hide();
+    });
+    $(".weui_textarea").click(function(){
+        $(".weui_tabbar").hide();
+    });
+    $(".weui_input").blur(function(){
+        $(".weui_tabbar").show();
+    });
+    $(".weui_textarea").blur(function(){
+        $(".weui_tabbar").show();
     });
 </script>
 </html>

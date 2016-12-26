@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>评论页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/Wechat_media/Public/home/lib/weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/jquery-weui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/Wechat_media/Public/home/css/demos.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/lib/weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/jquery-weui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/Public/home/css/demos.css" type="text/css"/>
     <style>
         h1{
             text-align: center;
@@ -29,7 +29,7 @@
         }
         .zan{
             position: absolute;
-            right: 5%;
+            left: 85%;
             top: 15px;
         }
         .comment_content{
@@ -66,17 +66,17 @@
         .praise{
             background: #3CC51F;
         }
+        .weui_cell .weui_cell_primary{
+            border-radius: 4px;
+            border:1px solid gray;
+        }
     </style>
 </head>
 <body>
 <div class="weui_tab">
     <div class="weui_tab_bd">
         <div class="weui-pull-to-refresh-layer">
-            <div class='pull-to-refresh-arrow'></div>
-            <div class='pull-to-refresh-preloader'></div>
-            <div class="down">下拉刷新</div>
-            <div class="up">释放刷新</div>
-            <div class="refresh">正在刷新</div>
+
         </div>
         <div class="weui_cells">
             <?php if(is_array($comments)): $i = 0; $__LIST__ = $comments;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?><div class="weui_cell">
@@ -90,7 +90,7 @@
                         <p><?php echo (date("Y-m-d H:i",$comment["time"])); ?></p>
                     </div>
                     <div class="zan">
-                        <div class="weui_btn weui_btn_mini weui_btn_default"><p>赞<?php echo ($comment["parisecount"]); ?></p><input class="id" hidden value="<?php echo ($comment["c_id"]); ?>"></div>
+                        <p><img src="/Public/home/images/zanqian.png"/><?php echo ($comment["parisecount"]); ?></p><input class="id" hidden value="<?php echo ($comment["c_id"]); ?>">
                     </div>
                 </div>
                 <div class="comment_content">
@@ -98,8 +98,7 @@
                 </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         <div class="weui-infinite-scroll">
-            <div class="infinite-preloader"></div>
-            正在加载
+            
         </div>
     </div>
     <div class="background"></div>
@@ -125,11 +124,13 @@
     </div>
 </div>
 </body>
-<script src="/Wechat_media/Public/home/lib/jquery-2.1.4.js"></script>
-<script src="/Wechat_media/Public/home/lib/fastclick.js"></script>
-<script src="/Wechat_media/Public/home/js/jquery-weui.js"></script>
+<script src="/Public/home/lib/jquery-2.1.4.js"></script>
+<script src="/Public/home/lib/fastclick.js"></script>
+<script src="/Public/home/js/jquery-weui.js"></script>
 <script>
     var MAX_LENGTH=200; //最大输入字数
+    var img = "/Public/home/images/zanqian.png";
+    var src = "/Public/home/images/zanhou.png";
 //    检查是否点过赞
     function praisecheck() {
         $.post("<?php echo U('home/adminrcmd/getsession');?>",function (data) {
@@ -138,11 +139,32 @@
                 $(".id").each(function () {
                     var id = $(this).val();
                     if (id == value){
-                        $(this).parent().addClass("praise");
+                        $(this).prev().children('img').attr("src",src);
                     }
                 });
             })
         });
+    }
+    function append(data,cla) {
+        for (i = 0; i < data.length; i++) {
+            $(cla).append('<div class="weui_cell">'+
+                    '<div class="head">'+
+                    '<img src="'+data[i].userimg+'">'+
+                    '</div>'+
+                    '<div class="username">'+
+                    '<p>'+data[i].username+'</p>'+
+                    '</div>'+
+                    '<div class="time">'+
+                    '<p>'+data[i].time+'</p>'+
+                    '</div>'+
+                    '<div class="zan">'+
+                    '<p><img src="/Public/home/images/zanqian.png"/>'+data[i].parisecount+'</p><input class="id" hidden value="'+data[i].c_id+'">'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="comment_content">'+
+                    '<p>'+data[i].content+'</p>'+
+                    '</div>')
+        }
     }
     $(document).ready(function(){
         praisecheck();
@@ -152,69 +174,30 @@
         var ar_id = "<?php echo ($ar_id); ?>";
         $.post(url,{'ar_id':ar_id},function (data) {
             var comments = jQuery.parseJSON(data);
-            $(".weui_tab_bd .weui_cells").html(
-            '<div class="weui_cell">'+
-                '<div class="head">'+
-                    '<img src="'+comments[0].userimg+'">'+
-                '</div>'+
-                '<div class="username">'+
-                    '<p>'+comments[0].username+'</p>'+
-                '</div>'+
-                '<div class="time">'+
-                    '<p>'+comments[0].time+'</p>'+
-                '</div>'+
-                '<div class="zan">'+
-                    '<div class="weui_btn weui_btn_mini weui_btn_default"><p>赞'+comments[0].parisecount+'</p><input class="id" hidden value="'+comments[0].c_id+'"></div>'+
-                '</div>'+
-                '</div>'+
-                '<div class="comment_content">'+
-                    '<p>'+comments[0].content+'</p>'+
-                '</div>'
-            )
-            for (var i=1;i<comments.length;i++){
-                $(".weui_tab_bd .weui_cells").append(
-                    '<div class="weui_cell">'+
-                        '<div class="head">'+
-                            '<img src="'+comments[i].userimg+'">'+
-                        '</div>'+
-                        '<div class="username">'+
-                            '<p>'+comments[i].username+'</p>'+
-                        '</div>'+
-                        '<div class="time">'+
-                            '<p>'+comments[i].time+'</p>'+
-                        '</div>'+
-                        '<div class="zan">'+
-                            '<div class="weui_btn weui_btn_mini weui_btn_default"><p>赞'+comments[i].parisecount+'</p><input class="id" hidden value="'+comments[i].c_id+'"></div>'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="comment_content">'+
-                        '<p>'+comments[i].content+'</p>'+
-                    '</div>'
-                )
-            }
+            $(".weui_tab_bd .weui_cells").html('')
+            append(comments,".weui_tab_bd .weui_cells");
             $(".weui_tab_bd").pullToRefreshDone();
             praise();
             praisecheck();
         });
     });
 //点赞功能函数
-    function praise(classname) {
-        $(".weui_tab_bd .weui_cells .weui_btn_mini").unbind('click').on('click',function(){
-            var classname = $.trim($(this).attr('class')).substr(-6);
-            var id = $(this).children(".id").val();
-            var num = parseInt($.trim($(this).text()).substr(1));
-            if (classname=='praise'){
+    function praise() {
+        $(".zan").unbind('click').on('click',function(){
+            var id = $(this).children('.id').val();//获取评论id
+            var num = $(this).children('p').text();//获取点赞数量
+            var cimg = $(this).children('p').children('img').attr("src");
+            if (cimg==src){
                 var url="<?php echo U('home/adminrcmd/praise_c');?>";
                 $.post(url,{"c_id":id});
-                num = num-1;
-                $(this).removeClass("praise");
-            }else{
+                num = num*1-1;
+                $(this).children('p').html('<img src="'+img+'" />'+num);
+            }else if(cimg==img){
                 var url="<?php echo U('home/adminrcmd/praise');?>";
                 $.post(url,{"c_id":id});
-                num = num+1;
-                $(this).addClass("praise");
+                num = num*1+1;
+                $(this).children('p').html('<img src="'+ src+'" />'+num);
             }
-            $(this).children('p').text('赞'+num);
         });
     }
 praise();
@@ -236,7 +219,7 @@ $(".background").click(function () {
             $.toast("请输入评论内容",'text');
         }else {
             var url="<?php echo U('home/adminrcmd/comment_publish');?>";
-            var mediaid="<?php echo ($content["ar_id"]); ?>";
+            var mediaid="<?php echo ($ar_id); ?>";
             $.post(url, {'content':content,'mediaid':mediaid},function (data) {
                 if (data=='1'){
                     $(".comment").hide();
@@ -269,28 +252,10 @@ $(".background").click(function () {
         $.post(url,{'ar_id':ar_id,'p':p},function (data) {
             if (data=='0'){
                 $.toast('没有更多评论了!','text');
+                $(".weui-infinite-scroll").hide();
             }else{
-                for (var i=0;i<comments.length;i++){
-                    $(".weui_tab_bd .weui_cells").append(
-                            '<div class="weui_cell">'+
-                            '<div class="head">'+
-                            '<img src="'+comments[i].userimg+'">'+
-                            '</div>'+
-                            '<div class="username">'+
-                            '<p>'+comments[i].username+'</p>'+
-                            '</div>'+
-                            '<div class="time">'+
-                            '<p>'+comments[i].time+'</p>'+
-                            '</div>'+
-                            '<div class="zan">'+
-                            '<div class="weui_btn weui_btn_mini weui_btn_default"><p>赞'+comments[i].parisecount+'</p><input class="id" hidden value="'+comments[i].c_id+'"></div>'+
-                            '</div>'+
-                            '</div>'+
-                            '<div class="comment_content">'+
-                            '<p>'+comments[i].content+'</p>'+
-                            '</div>'
-                    )
-                }
+                var comments = jQuery.parseJSON(data);
+                append(comments,".weui_tab_bd .weui_cells");
                 p++;
                 praise();
                 praisecheck();

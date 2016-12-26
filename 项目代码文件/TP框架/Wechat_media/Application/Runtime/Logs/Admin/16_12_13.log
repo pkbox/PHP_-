@@ -1,18 +1,9 @@
-[ 2016-12-13T10:54:45+08:00 ] ::1 /Wechat_media/admin/u
+[ 2016-12-13T14:23:46+08:00 ] 123.56.233.103 /admin
 INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001645s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.001808s ]
-ERR: 无法加载控制器:U
-
-[ 2016-12-13T10:56:57+08:00 ] ::1 /Wechat_media/admin
-INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000502s ]
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001898s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.002101s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000505s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000563s ]
 ERR: 无法加载控制器:Index
 
